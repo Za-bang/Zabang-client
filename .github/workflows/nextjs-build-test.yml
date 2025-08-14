@@ -8,11 +8,13 @@ jobs:
   build:
     name: Build Test
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # (옵션) 히스토리 필요한 경우만
 
-      # 디버그: 정말 루트에 package.json이 있는지 확인
       - name: Debug workspace
         run: |
           pwd
@@ -30,3 +32,7 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      # 테스트가 있으면 활성화
+      # - name: Test
+      #   run: npm test -- --ci
