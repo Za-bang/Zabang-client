@@ -1,95 +1,62 @@
-import Image from "next/image";
+"use client";
+
+import Header from "./components/Header";
+import ReviewList from "./components/ReviewList";
+import BottomNav from "./components/BottomNav";
 import styles from "./page.module.css";
 
-export default function Home() {
+export default function HomePage() {
+  // TODO: 이후 백엔드 연동 시 이 부분을 fetch로 교체하세요.
+  const reviews = [
+    {
+      id: 1,
+      place: "장원빌",
+      text: "깨끗하고 조용한 편입니다.",
+      date: "2025. 05. 23",
+      likes: 2,
+      comments: 2,
+    },
+    {
+      id: 2,
+      place: "장원빌",
+      text: "깨끗하고 조용한 편입니다.",
+      date: "2025. 05. 23",
+      likes: 2,
+      comments: 2,
+    },
+    {
+      id: 3,
+      place: "장원빌",
+      text: "깨끗하고 조용한 편입니다.",
+      date: "2025. 05. 23",
+      likes: 2,
+      comments: 2,
+    },
+  ];
+
   return (
     <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+      <Header />
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
+      <main className={styles.main}>
+        {/* 최근 리뷰 */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>최근 리뷰</h2>
+          <ReviewList items={reviews} />
+        </section>
+
+        {/* 근처 방 찾기 */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>근처 방 찾기</h2>
+          <div className={styles.mapCard} aria-label="지도 영역">
+            <div className={styles.mapPlaceholder}>
+              지도 영역 (추후 지도 라이브러리 연동)
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+      <BottomNav active="home" />
     </div>
   );
 }
