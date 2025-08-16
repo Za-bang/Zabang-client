@@ -1,34 +1,23 @@
-import type { NextConfig } from "next"
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Static export 설정 (GitHub Actions에서 out 폴더 생성용)
+  // Static export (GitHub Pages 등)
   output: "export",
-  trailingSlash: true,
-  images: {
-    unoptimized: true,
-  },
+  trailingSlash: true,        // /community/view/ 형태 허용
+  images: { unoptimized: true }, // export 모드에서 이미지 최적화 끔
 
-  // TypeScript 설정
-  typescript: {
-    // 빌드 시 타입 에러를 무시하지 않음
-    ignoreBuildErrors: false,
-  },
+  // TypeScript/ESLint 빌드 검증
+  typescript: { ignoreBuildErrors: false },
+  eslint: { ignoreDuringBuilds: false },
 
-  // ESLint 설정
-  eslint: {
-    // 빌드 시 ESLint 에러를 무시하지 않음
-    ignoreDuringBuilds: false,
-  },
-
-  // 실험적 기능 (필요시)
+  // 실험 옵션 (MUI import 최적화)
   experimental: {
-    // CSS 모듈 최적화
     optimizePackageImports: [
       "@mui/material",
       "@emotion/react",
       "@emotion/styled",
     ],
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;
