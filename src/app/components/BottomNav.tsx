@@ -15,32 +15,28 @@ export default function BottomNav({ active = "home" }) {
           href="/"
           className={`${styles.tabBtn} ${active === "home" ? styles.tabActive : ""}`}
         >
-          <HomeRoundedIcon fontSize="small" />
-          <span>홈</span>
+          <HomeRoundedIcon fontSize="inherit" className={styles.bottomIcon} />
         </Link>
 
         <Link
           href="/map"
           className={`${styles.tabBtn} ${active === "map" ? styles.tabActive : ""}`}
         >
-          <MapRoundedIcon fontSize="small" />
-          <span>지도</span>
+          <MapRoundedIcon fontSize="inherit" className={styles.bottomIcon} />
         </Link>
 
         <Link
           href="/community"
           className={`${styles.tabBtn} ${active === "board" ? styles.tabActive : ""}`}
         >
-          <ForumRoundedIcon fontSize="small" />
-          <span>게시판</span>
+          <ForumRoundedIcon fontSize="inherit" className={styles.bottomIcon} />
         </Link>
 
         <Link
           href="/settings"
           className={`${styles.tabBtn} ${active === "settings" ? styles.tabActive : ""}`}
         >
-          <SettingsRoundedIcon fontSize="small" />
-          <span>설정</span>
+          <SettingsRoundedIcon fontSize="inherit" className={styles.bottomIcon} />
         </Link>
       </div>
     </nav>

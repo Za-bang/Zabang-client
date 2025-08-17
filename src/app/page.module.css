@@ -1,6 +1,6 @@
 .page {
   min-height: 100dvh;
-  background: #f7f7f8;
+  background-color: #fff;
 }
 
 .main {
@@ -14,7 +14,7 @@
 }
 
 .sectionTitle {
-  font-size: 16px;
+  font-size: clamp(1.2rem, 2vw, 2rem);
   font-weight: 700;
   margin: 8px 4px 10px;
   color: #222;
@@ -22,9 +22,8 @@
 
 /* ===== 최근 리뷰 카드 ===== */
 .reviewCard {
-  background: #fff;
+  background: #FBFBFB;
   border-radius: 14px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
   overflow: hidden;
   border: 1px solid #eee;
 }
@@ -38,8 +37,8 @@
 }
 
 .reviewPlace {
-  font-weight: 800;
-  font-size: 14px;
+  font-weight: bold;
+  font-size: (1rem, 2vw, 2rem);
   margin-bottom: 4px;
   color: #1d1d1f;
 }
@@ -62,15 +61,7 @@
   color: #9aa0a6;
 }
 
-.reactions {
-  display: flex;
-  gap: 14px;
-  color: #9aa0a6;
-  font-size: 12px;
-  align-items: center;
-}
-
-.reaction {
+.comment {
   display: inline-flex;
   gap: 4px;
   align-items: center;
@@ -99,29 +90,23 @@
   top: 0;
   z-index: 20;
   background: #fff;
-  border-bottom: 1px solid #eee;
 }
 
 .headerInner {
-  max-width: 480px;
-  margin: 0 auto;
-  padding: 10px 12px;
+  height: clamp(3rem, 15vw, 6rem);
+  margin-left: clamp(1rem, 2vw, 2rem);
+  margin-right: clamp(1rem, 2vw, 2rem);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 800;
-  font-size: 18px;
+.logo {
+  width: clamp(8rem, 15vw, 13rem);
 }
 
-.headerActions {
-  display: flex;
-  gap: 6px;
+.headerIcon{
+  font-size: clamp(1.5rem, 3vw, 2.5rem) !important;
 }
 
 /* ===== 하단 탭바 ===== */
@@ -136,9 +121,7 @@
 }
 
 .bottomInner {
-  max-width: 480px;
-  height: 64px;
-  margin: 0 auto;
+  height: clamp(4rem, 10vw, 6rem);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
@@ -146,13 +129,13 @@
 .tabBtn {
   display: grid;
   place-items: center;
-  text-decoration: none;
-  color: #6b7280;
-  font-size: 11px;
-  gap: 4px;
+  color: #B6B6B6;
 }
 
 .tabActive {
-  color: #6a5cff; /* 포커스 색상 */
-  font-weight: 700;
+  color: #000;
+}
+
+.bottomIcon {
+  font-size: clamp(1.5rem, 3vw, 2.5rem) !important;
 }

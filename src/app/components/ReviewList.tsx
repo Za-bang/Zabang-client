@@ -14,17 +14,10 @@ export default function ReviewList({ items }) {
 
           <div className={styles.metaRow}>
             <span className={styles.date}>{r.date}</span>
-
-            <div className={styles.reactions}>
-              <span className={styles.reaction} title="좋아요">
-                <FavoriteBorderRoundedIcon fontSize="small" />
-                {r.likes}
-              </span>
-              <span className={styles.reaction} title="댓글">
-                <ChatBubbleOutlineRoundedIcon fontSize="small" />
+              <span className={styles.comment} title="댓글">
+                <ChatBubbleOutlineRoundedIcon  />
                 {r.comments}
               </span>
-            </div>
           </div>
         </article>
       ))}

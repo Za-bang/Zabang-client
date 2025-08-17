@@ -41,7 +41,7 @@ export default function HomePage() {
       <main className={styles.main}>
         {/* 최근 리뷰 */}
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>최근 리뷰</h2>
+          <div className={styles.sectionTitle}>최근 리뷰</div>
           <ReviewList items={reviews} />
         </section>
 
