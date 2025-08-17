@@ -47,7 +47,7 @@ export default function HomePage() {
 
         {/* 근처 방 찾기 */}
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>근처 방 찾기</h2>
+          <div className={styles.sectionTitle}>근처 방 찾기</div>
           <div className={styles.mapCard} aria-label="지도 영역">
             <div className={styles.mapPlaceholder}>
               지도 영역 (추후 지도 라이브러리 연동)

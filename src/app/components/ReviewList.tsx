@@ -1,7 +1,6 @@
 "use client";
 
 import styles from "../page.module.css";
-import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
 import ChatBubbleOutlineRoundedIcon from "@mui/icons-material/ChatBubbleOutlineRounded";
 
 export default function ReviewList({ items }) {
@@ -15,7 +14,7 @@ export default function ReviewList({ items }) {
           <div className={styles.metaRow}>
             <span className={styles.date}>{r.date}</span>
               <span className={styles.comment} title="댓글">
-                <ChatBubbleOutlineRoundedIcon  />
+                <ChatBubbleOutlineRoundedIcon  fontSize="inherit" className={styles.chatIcon}/>
                 {r.comments}
               </span>
           </div>
