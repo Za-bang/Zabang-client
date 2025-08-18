@@ -32,7 +32,7 @@ export async function fetchReviews(): Promise<Review[]> {
   return Promise.resolve(MOCK_REVIEWS);
 }
 
-export async function fetchReviewById(id: number): Promise<Review | undefined> {
+export async function fetchReviewById(id: string): Promise<Review | undefined> {
   // return (await fetch(`/api/reviews/${id}`)).json();
   return Promise.resolve(MOCK_REVIEWS.find((r) => r.id === id));
 }
