@@ -4,7 +4,7 @@ import Header from "../Components/Header";
 import BottomNav from "../Components/BottomNav";
 import type { Review } from "@/types/review";
 import {fetchReviews} from "@/api/reviews"
-import ReviewList from "./Components/ReviewList";
+import ReviewList from "./ReviewList";
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
 export default function HomePage() {
