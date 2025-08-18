@@ -2,8 +2,13 @@
 
 import styles from "./page.module.css";
 import ChatBubbleOutlineRoundedIcon from "@mui/icons-material/ChatBubbleOutlineRounded";
+import type { Review } from "@/types/review";
 
-export default function ReviewList({ items }) {
+type Props = {
+  items: Review[];
+};
+
+export default function ReviewList({ items }:Props) {
   return (
     <div className={styles.reviewCard}>
       {items.map((r) => (

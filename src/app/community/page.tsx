@@ -8,7 +8,7 @@ import BottomNav from "@/Components/BottomNav";
 import { FILTERS } from "@/types/post";
 import { useRouter } from "next/navigation";
 import type { Post } from "@/types/post";
-import PostCardList from "@/app/community/Components/PostCardList";
+import PostCardList from "./Components/PostCardList";
 import { fetchPosts } from "@/api/posts";
 
 export default function CommunityPage() {
