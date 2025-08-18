@@ -6,7 +6,7 @@ import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import Header from "@/Components/Header";
 import BottomNav from "@/Components/BottomNav";
 import { FILTERS } from "@/types/post";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import type { Post } from "@/types/post";
 import PostCardList from "./Components/PostCardList";
 import { fetchPosts } from "@/api/posts";
@@ -16,10 +16,10 @@ export default function CommunityPage() {
   const [filter, setFilter] = useState("전체");
 
   //새로운 게시글 작성
-  // const router = useRouter();
-  // // const handleGoToWrite = () => {
-  // //   router.push("./writePost");
-  // // };
+  const router = useRouter();
+  const handleGoToWrite = () => {
+    router.push("./writePost");
+  };
 
   //게시글 목록 나타내기
   const [posts, setPosts] = useState<Post[]>([]);
@@ -72,8 +72,7 @@ export default function CommunityPage() {
       </div>
 
       {/* 글쓰기 버튼 */}
-      {/* <button onClick={handleGoToWrite} className={styles.fab}> */}
-      <button className={styles.fab}>
+      <button onClick={handleGoToWrite} className={styles.fab}>
         <AddRoundedIcon />
       </button>
 
