@@ -4,11 +4,10 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import styles from "../page.module.css";
 import AddAPhotoRoundedIcon from "@mui/icons-material/AddAPhotoRounded";
-import { addPost } from "../_store";
 
 const TAGS = ["공동구매", "1구역", "2구역", "3구역", "4구역"];
 
-export default function WritePage() {
+export default function WritePost() {
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");

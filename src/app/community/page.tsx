@@ -3,12 +3,12 @@
 import { useEffect, useState, useMemo } from "react";
 import styles from "./page.module.css";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
-import Header from "../Components/Header";
-import BottomNav from "../Components/BottomNav";
+import Header from "@/app/Components/Header";
+import BottomNav from "@/app/Components/BottomNav";
 import { FILTERS } from "@/types/post";
 import { useRouter } from "next/navigation";
 import type { Post } from "@/types/post";
-import PostCardList from "./Components/PostCardList";
+import PostCardList from "@/app/community/Components/PostCardList";
 import { fetchPosts } from "@/api/posts";
 
 export default function CommunityPage() {
@@ -18,7 +18,7 @@ export default function CommunityPage() {
   //새로운 게시글 작성
   const router = useRouter();
   const handleGoToWrite = () => {
-    router.push("WritePage");
+    router.push("./writePost");
   };
 
   //게시글 목록 나타내기
