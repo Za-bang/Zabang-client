@@ -1,0 +1,50 @@
+.page {
+  min-height: 100dvh;
+  background-color: #fff;
+}
+
+.main {
+  padding: clamp(1rem, 2vw, 2rem);
+  width: clamp(20rem, 100vw, 70rem);
+  margin: 0 auto;
+}
+
+/***** 카테고리 *****/
+.filterRow {
+  display: flex;
+  gap: clamp(0.16rem, 0.5vw, 0.5rem);
+  flex-wrap: wrap;
+  margin-bottom:clamp(0.7rem, 1.2vw, 1.2rem);
+  font-weight: bold;
+}
+
+.chip {
+  padding: clamp(0.3rem, 0.6vw, 0.6rem) clamp(0.6rem, 1vw, 1rem);
+  border-radius: 100vh;
+  background: #fff;
+  color: #4b5563;
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  border: 1.5px solid #CCCCCC;
+  cursor: pointer;
+}
+
+.chipActive {
+  background: #BC76BA;
+  color: #fff;
+}
+
+.fab {
+  position: fixed;
+  right: clamp(1rem, 3vw, 3rem);
+  bottom: clamp(5rem, 10vw, 8rem);
+  width: clamp(3.3rem, 5vw, 5rem);
+  height: clamp(3.3rem, 5vw, 5rem);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #E89B00;
+  color: #fff;
+  border: bold;
+  box-shadow: 0px 8px 8px #dbdbdb;
+  cursor: pointer;
+}

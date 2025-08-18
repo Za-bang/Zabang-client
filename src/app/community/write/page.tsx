@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import styles from "../community.module.css";
+import styles from "../page.module.css";
 import AddAPhotoRoundedIcon from "@mui/icons-material/AddAPhotoRounded";
 import { addPost } from "../_store";
 

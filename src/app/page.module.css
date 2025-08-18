@@ -20,58 +20,6 @@
   color: #222;
 }
 
-/* ===== 최근 리뷰 카드 ===== */
-.reviewCard {
-  background: #FBFBFB;
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid #eee;
-}
-
-.reviewItem {
-  padding: 12px 14px;
-  border-top: 1px solid #f1f1f1;
-}
-
-
-.reviewPlace {
-  font-weight: bold;
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  margin-bottom: 4px;
-  color: #1d1d1f;
-}
-
-.reviewText {
-  font-size: clamp(0.85rem, 2vw, 1.2rem);
-  color: #444;
-  line-height: 1.35;
-}
-
-.metaRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 1rem;
-}
-
-.date {
-  font-size: clamp(0.75rem, 2vw, 1.1rem);
-  color: #9aa0a6;
-}
-
-.comment {
-  display: inline-flex;
-  gap: 4px;
-  align-items: center;
-  font-size: clamp(0.75rem, 2vw, 1.1rem);
-  color: #9aa0a6;
-}
-
-.chatIcon {
-  font-size: clamp(0.9rem, 2vw, 1.4rem) !important;
-  color: #9aa0a6;
-}
-
 /* ===== 지도 카드 ===== */
 .mapCard {
   background: #fff;
@@ -87,60 +35,4 @@
   color: #7a7a7a;
   font-size: 14px;
   background: linear-gradient(180deg, #f3f5f7, #e9edf1);
-}
-
-/* ===== 헤더 ===== */
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: #fff;
-}
-
-.headerInner {
-  height: clamp(3rem, 15vw, 6rem);
-  margin-left: clamp(1rem, 2vw, 2rem);
-  margin-right: clamp(1rem, 2vw, 2rem);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  width: clamp(8rem, 15vw, 13rem);
-}
-
-.headerIcon{
-  font-size: clamp(1.5rem, 3vw, 2.5rem) !important;
-}
-
-/* ===== 하단 탭바 ===== */
-.bottomNav {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 30;
-  background: #fff;
-  border-top: 1px solid #eee;
-}
-
-.bottomInner {
-  height: clamp(4rem, 10vw, 6rem);
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.tabBtn {
-  display: grid;
-  place-items: center;
-  color: #B6B6B6;
-}
-
-.tabActive {
-  color: #000;
-}
-
-.bottomIcon {
-  font-size: clamp(1.5rem, 3vw, 2.5rem) !important;
 }

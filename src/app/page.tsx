@@ -1,38 +1,20 @@
 "use client";
 
-import Header from "./components/Header";
-import ReviewList from "./components/ReviewList";
-import BottomNav from "./components/BottomNav";
+import Header from "./Components/Header";
+import ReviewList from "./Components/ReviewList";
+import BottomNav from "./Components/BottomNav";
 import styles from "./page.module.css";
-
+import type { Review } from "@/types/review";
+import {fetchReviews} from "@/api/reviews"
+import { useEffect, useState } from "react";
 export default function HomePage() {
-  // TODO: 이후 백엔드 연동 시 이 부분을 fetch로 교체하세요.
-  const reviews = [
-    {
-      id: 1,
-      place: "장원빌",
-      text: "깨끗하고 조용한 편입니다.",
-      date: "2025. 05. 23",
-      likes: 2,
-      comments: 2,
-    },
-    {
-      id: 2,
-      place: "장원빌",
-      text: "깨끗하고 조용한 편입니다.",
-      date: "2025. 05. 23",
-      likes: 2,
-      comments: 2,
-    },
-    {
-      id: 3,
-      place: "장원빌",
-      text: "깨끗하고 조용한 편입니다.",
-      date: "2025. 05. 23",
-      likes: 2,
-      comments: 2,
-    },
-  ];
+
+    //리뷰 목록 나타내기
+   const [reviews, setReviews] = useState<Review[]>([]);
+   useEffect(()=>{
+    fetchReviews().then(setReviews);
+   }, []);
+   
 
   return (
     <div className={styles.page}>
