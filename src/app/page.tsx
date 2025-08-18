@@ -1,8 +1,8 @@
 "use client";
 
-import Header from "@/app/Components/Header";
+import Header from "@/Components/Header";
 import ReviewList from "@/app/Components/ReviewList";
-import BottomNav from "@/app/Components/BottomNav";
+import BottomNav from "@/Components/BottomNav";
 import styles from "./page.module.css";
 import type { Review } from "@/types/review";
 import {fetchReviews} from "@/api/reviews"

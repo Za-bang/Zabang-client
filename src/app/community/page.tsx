@@ -3,8 +3,8 @@
 import { useEffect, useState, useMemo } from "react";
 import styles from "./page.module.css";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
-import Header from "@/app/Components/Header";
-import BottomNav from "@/app/Components/BottomNav";
+import Header from "@/Components/Header";
+import BottomNav from "@/Components/BottomNav";
 import { FILTERS } from "@/types/post";
 import { useRouter } from "next/navigation";
 import type { Post } from "@/types/post";
