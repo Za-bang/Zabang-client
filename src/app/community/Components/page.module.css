@@ -1,0 +1,117 @@
+.card {
+    display: grid;
+    grid-template-columns: clamp(4rem, 8vw, 8rem) 1fr;
+    gap: 1rem;
+    padding: clamp(0.4rem, 1vw, 0.75rem) clamp(0.4rem, 1vw, 0.75rem);
+    background: #fff;
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid #E5E5E5;
+    margin-bottom: 0.4rem;
+}
+
+.thumbWrap {
+    width: clamp(4.85rem, 8vw, 8rem);
+    height: clamp(4.85rem, 8vw, 8rem);
+    border-radius: 8px;
+    overflow: hidden;
+    background: #eee;
+}
+
+.thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    min-width: 0;
+    margin-left: 0.35rem;
+}
+
+.badges {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-weight: bold;
+}
+
+.badgePurple {
+    font-size: clamp(0.7rem, 2vw, 1.1rem);
+    padding: 2px 6px;
+    border-radius: 999px;
+    background: #eee6ff;
+    color: #5b3dd9;
+    padding: clamp(0.1rem, 1vw, 0.2em) clamp(0.35rem, 1vw, 0.6rem);
+}
+
+.badgeBlue {
+    font-size: clamp(0.7rem, 2vw, 1.1rem);
+    padding: 2px 6px;
+    border-radius: 999px;
+    background: #789AEA;
+    color: #fff;
+    padding: clamp(0.1rem, 1vw, 0.2em) clamp(0.35rem, 1vw, 0.6rem);
+
+
+}
+
+.badgeGray {
+    font-size: clamp(0.7rem, 2vw, 1.1rem);
+    border-radius: 999px;
+    background: #ADADAD;
+    color: #fff;
+    padding: clamp(0.1rem, 1vw, 0.2em) clamp(0.35rem, 1vw, 0.6rem);
+
+}
+
+.title {
+  font-weight: bold;
+  font-size: clamp(0.95rem, 2vw, 1.5rem);
+  white-space: nowrap;      
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  color: #373737;
+  line-height: 1;
+}
+
+.contents {
+  margin: 0;
+  color: #555;
+  font-size: clamp(0.85rem, 2vw, 1.35rem);
+  line-height: 1;
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+
+.metaRow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #7F7F7F;
+  font-size: clamp(0.75rem, 2vw, 1.3rem);
+margin-top: auto
+}
+
+.metaDot {
+    opacity: .6;
+}
+
+.right {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.chatIcon {
+  font-size: clamp(0.9rem, 2vw, 1.4rem) !important;
+  color: #9aa0a6;
+}

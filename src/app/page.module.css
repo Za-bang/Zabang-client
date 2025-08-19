@@ -1,30 +1,29 @@
 .page {
   min-height: 100dvh;
-  background: #f7f7f8;
+  background-color: #fff;
 }
 
 .main {
-  padding: 12px 12px 84px; /* 하단 탭바 높이만큼 패딩 */
-  max-width: 480px;
+  padding: clamp(1rem, 2vw, 2rem);
+  width: clamp(20rem, 100vw, 70rem);
   margin: 0 auto;
 }
 
 .section {
-  margin-bottom: 16px;
+  margin-bottom: clamp(1.8rem, 5vw, 3rem);
 }
 
 .sectionTitle {
-  font-size: 16px;
+  font-size: clamp(1.2rem, 2vw, 2rem);
   font-weight: 700;
-  margin: 8px 4px 10px;
+  margin:0px 0px 8px 8px; 
   color: #222;
 }
 
-/* ===== 최근 리뷰 카드 ===== */
+/*=====리뷰 리스트=====*/
 .reviewCard {
-  background: #fff;
+  background: #FBFBFB;
   border-radius: 14px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
   overflow: hidden;
   border: 1px solid #eee;
 }
@@ -33,19 +32,17 @@
   padding: 12px 14px;
   border-top: 1px solid #f1f1f1;
 }
-.reviewItem:first-child {
-  border-top: none;
-}
+
 
 .reviewPlace {
-  font-weight: 800;
-  font-size: 14px;
+  font-weight: bold;
+  font-size: clamp(1rem, 2vw, 1.5rem);
   margin-bottom: 4px;
   color: #1d1d1f;
 }
 
 .reviewText {
-  font-size: 13px;
+  font-size: clamp(0.85rem, 2vw, 1.2rem);
   color: #444;
   line-height: 1.35;
 }
@@ -54,28 +51,26 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 8px;
+  margin-top: 1rem;
 }
 
 .date {
-  font-size: 12px;
+  font-size: clamp(0.75rem, 2vw, 1.1rem);
   color: #9aa0a6;
 }
 
-.reactions {
-  display: flex;
-  gap: 14px;
-  color: #9aa0a6;
-  font-size: 12px;
-  align-items: center;
-}
-
-.reaction {
+.comment {
   display: inline-flex;
   gap: 4px;
   align-items: center;
+  font-size: clamp(0.75rem, 2vw, 1.1rem);
+  color: #9aa0a6;
 }
 
+.chatIcon {
+  font-size: clamp(0.9rem, 2vw, 1.4rem) !important;
+  color: #9aa0a6;
+}
 /* ===== 지도 카드 ===== */
 .mapCard {
   background: #fff;
@@ -93,66 +88,3 @@
   background: linear-gradient(180deg, #f3f5f7, #e9edf1);
 }
 
-/* ===== 헤더 ===== */
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: #fff;
-  border-bottom: 1px solid #eee;
-}
-
-.headerInner {
-  max-width: 480px;
-  margin: 0 auto;
-  padding: 10px 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 800;
-  font-size: 18px;
-}
-
-.headerActions {
-  display: flex;
-  gap: 6px;
-}
-
-/* ===== 하단 탭바 ===== */
-.bottomNav {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 30;
-  background: #fff;
-  border-top: 1px solid #eee;
-}
-
-.bottomInner {
-  max-width: 480px;
-  height: 64px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.tabBtn {
-  display: grid;
-  place-items: center;
-  text-decoration: none;
-  color: #6b7280;
-  font-size: 11px;
-  gap: 4px;
-}
-
-.tabActive {
-  color: #6a5cff; /* 포커스 색상 */
-  font-weight: 700;
-}
