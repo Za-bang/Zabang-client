@@ -1,0 +1,14 @@
+.page{min-height:100dvh;background:#f7f7f8;color-scheme:light}
+.topbar{position:sticky;top:0;z-index:20;height:48px;border-bottom:1px solid #eee;background:#fff;display:flex;align-items:center;gap:8px;padding:0 8px}
+.iconBtn{width:36px;height:36px;display:grid;place-items:center;border:1px solid #e5e7eb;border-radius:10px;background:#fff;color:#677285}
+.title{flex:1;text-align:center;font-weight:800}
+.inner{max-width:480px;margin:0 auto;padding:12px}
+.label{margin:10px 0 6px;font-weight:700}
+.input{width:100%;height:44px;border:1px solid #e5e7eb;border-radius:10px;padding:0 12px;background:#fff;color:#111;outline:none}
+.textarea{width:100%;min-height:180px;border:1px solid #e5e7eb;border-radius:10px;padding:12px;background:#fff;color:#111;outline:none;resize:vertical}
+.attachRow{display:grid;grid-template-columns:1fr auto;gap:8px}
+.attachBtn{display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 12px;border:1px solid #e5e7eb;border-radius:10px;background:#fff}
+.meta{margin-top:12px;color:#6b7280;font-size:12px}
+.bottomBar{position:fixed;left:0;right:0;bottom:64px;display:grid;grid-template-columns:1fr 1fr;gap:12px;background:#fff;border-top:1px solid #eee;padding:12px}
+.ghostBtn{height:44px;border:1px solid #e5e7eb;border-radius:10px;background:#fff}
+.primaryBtn{height:44px;border:none;border-radius:10px;background:#2563eb;color:#fff;font-weight:800}

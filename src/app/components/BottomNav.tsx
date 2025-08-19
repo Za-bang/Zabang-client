@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import styles from "./nav.module.css";
+import styles from "./page.module.css";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import MapRoundedIcon from "@mui/icons-material/MapRounded";
 import ForumRoundedIcon from "@mui/icons-material/ForumRounded";
