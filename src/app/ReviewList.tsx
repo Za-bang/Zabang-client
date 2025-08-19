@@ -1,10 +1,14 @@
 "use client";
 
-import styles from "../page.module.css";
-import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
+import styles from "./page.module.css";
 import ChatBubbleOutlineRoundedIcon from "@mui/icons-material/ChatBubbleOutlineRounded";
+import type { Review } from "@/types/review";
 
-export default function ReviewList({ items }) {
+type Props = {
+  items: Review[];
+};
+
+export default function ReviewList({ items }:Props) {
   return (
     <div className={styles.reviewCard}>
       {items.map((r) => (
@@ -14,17 +18,10 @@ export default function ReviewList({ items }) {
 
           <div className={styles.metaRow}>
             <span className={styles.date}>{r.date}</span>
-
-            <div className={styles.reactions}>
-              <span className={styles.reaction} title="좋아요">
-                <FavoriteBorderRoundedIcon fontSize="small" />
-                {r.likes}
-              </span>
-              <span className={styles.reaction} title="댓글">
-                <ChatBubbleOutlineRoundedIcon fontSize="small" />
+              <span className={styles.comment} title="댓글">
+                <ChatBubbleOutlineRoundedIcon  fontSize="inherit" className={styles.chatIcon}/>
                 {r.comments}
               </span>
-            </div>
           </div>
         </article>
       ))}
