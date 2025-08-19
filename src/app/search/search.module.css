@@ -1,0 +1,75 @@
+.page{min-height:100dvh;background:#f7f7f8;color-scheme:light}
+.inner{
+  max-width:480px;margin:0 auto;
+  /* 고정 버튼바(약 68px) + 하단탭(약 64px) + 여유 + safe-area */
+  padding:10px 12px calc(184px + env(safe-area-inset-bottom, 0px));
+}
+
+/* 상단 바 */
+.topbar{position:sticky;top:0;z-index:20;height:48px;border-bottom:1px solid #eee;background:#fff;display:flex;align-items:center;gap:8px;padding:0 8px}
+.iconBtn{width:36px;height:36px;display:grid;place-items:center;border:1px solid #e5e7eb;border-radius:10px;background:#fff;color:#677285}
+.iconBtn:hover{background:#f4f6f8}
+.searchInput{flex:1;height:36px;border-radius:999px;border:1px solid #e5e7eb;padding:0 14px;background:#f8f9fb;outline:none}
+.closeBtn{display:flex;align-items:center;gap:4px;color:#6b7280;border:none;background:transparent}
+.resultsTitle{flex:1;text-align:center;font-weight:700}
+
+/* 그룹/칩 */
+.group{margin:14px 0}
+.groupTitle{font-weight:800;margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:6px 10px;border-radius:999px;border:1px solid #e5e7eb;background:#fff;color:#374151}
+.chipOn{background:#6a5cff;color:#fff;border-color:#6a5cff}
+
+/* 맨 마지막 섹션은 추가 여백(혹시 모를 기기별 겹침 방지) */
+.group:last-child{padding-bottom:120px}
+
+/* 하단 버튼바 */
+.bottomBar{
+  position:fixed;left:0;right:0;bottom:64px; /* 하단 탭 위로 */
+  background:#fff;border-top:1px solid #eee;
+  /* 좌우/하단 안전영역 고려 */
+  padding:12px calc(12px + env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) calc(12px + env(safe-area-inset-left,0px));
+}
+.primaryBtn{width:100%;height:44px;border:none;border-radius:10px;background:#6a5cff;color:#fff;font-weight:800}
+.primaryBtn:disabled{opacity:.5}
+
+/* 결과 리스트 */
+.selectedRow{display:flex;align-items:center;flex-wrap:wrap;gap:8px;color:#374151;margin:8px 2px 10px}
+.selectedLead{color:#6b7280}
+.selectedChip{padding:4px 8px;border-radius:999px;background:#eef2ff;color:#4f46e5;border:1px solid #e0e7ff}
+
+.rlist{display:flex;flex-direction:column;gap:10px}
+.rcard{display:grid;grid-template-columns:84px 1fr;gap:12px;background:#fff;border:1px solid #eee;border-radius:14px;padding:12px}
+.rcardNoThumb{grid-template-columns:1fr}
+.rthumb{width:100%;height:84px;border-radius:10px;object-fit:cover;background:#e9edf1}
+.rcBody{display:flex;flex-direction:column}
+.rcTitle{font-size:16px;font-weight:800;color:#111}
+.rcLine{margin-top:2px;color:#374151}
+.rcSub{margin-top:1px;font-size:12px;color:#6b7280}
+.rcFoot{margin-top:6px;font-size:12px;color:#9aa0a6;text-align:right}
+.emptyBox{padding:28px 10px;text-align:center;color:#9aa0a6}
+
+/* 상세 */
+.photoGrid{position:relative;display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:120px;gap:6px;margin-bottom:10px}
+.photo{width:100%;height:100%;object-fit:cover;border-radius:10px;background:#eef2f7}
+.photoGrid .photo:nth-child(1){grid-column:1 / span 1;grid-row:1 / span 2;height:246px}
+.photoMore{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.5);color:#fff;border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:8px}
+.photoMoreIcon{font-size:18px}
+.detailCard{background:#fff;border:1px solid #eee;border-radius:14px;padding:12px;margin-bottom:10px}
+.detailTitle{font-size:20px;font-weight:800;margin:2px 0}
+.addr{color:#6b7280;margin-bottom:6px}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:6px;color:#374151}
+.sectionTitle{font-size:16px;font-weight:800;margin-bottom:6px}
+.desc{color:#374151;line-height:1.6}
+
+/* 리뷰 */
+.reviewBlock{background:#fff;border:1px solid #eee;border-radius:14px;padding:12px}
+.reviewHeader{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.muted{color:#9aa0a6}
+.reviewItem{display:grid;grid-template-columns:32px 1fr;gap:8px;padding:10px 0;border-top:1px solid #f5f5f5}
+.reviewItem:first-of-type{border-top:none}
+.avatarSm{width:32px;height:32px;border-radius:50%;background:#e5e7eb}
+.reviewMeta{font-size:13px;color:#111}
+.reviewText{margin-top:2px;color:#374151}
+.reviewBtns{margin-top:6px;display:flex;gap:6px}
+.ghostBtn{padding:6px 10px;border-radius:999px;border:1px solid #e5e7eb;background:#fff;color:#374151}

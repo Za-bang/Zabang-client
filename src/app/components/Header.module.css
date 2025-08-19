@@ -1,0 +1,22 @@
+.header{
+  position:sticky; top:0; z-index:20;
+  height:48px; background:#fff; border-bottom:1px solid #eee;
+  display:flex; align-items:center; justify-content:space-between;
+  max-width:480px; margin:0 auto; padding:0 10px;
+}
+
+.brand{
+  display:flex; align-items:center; gap:8px;
+  background:transparent; border:none; cursor:pointer;
+  color:#111; font-weight:800; font-size:16px;
+}
+
+.title{ letter-spacing:.2px; }
+
+.actions{ display:flex; align-items:center; gap:8px; }
+
+.iconBtn{
+  width:36px; height:36px; display:grid; place-items:center;
+  border:1px solid #e5e7eb; border-radius:10px; background:#fff; color:#677285;
+}
+.iconBtn:hover{ background:#f4f6f8; }

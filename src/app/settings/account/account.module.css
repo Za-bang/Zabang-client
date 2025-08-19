@@ -1,0 +1,21 @@
+.page{min-height:100dvh;background:#f7f7f8;color-scheme:light}
+
+/* 상단바 */
+.topbar{position:sticky;top:0;z-index:20;height:48px;border-bottom:1px solid #eee;background:#fff;display:flex;align-items:center;gap:8px;padding:0 8px}
+.iconBtn{width:36px;height:36px;display:grid;place-items:center;border:1px solid #e5e7eb;border-radius:10px;background:#fff;color:#677285}
+.title{flex:1;text-align:center;font-weight:800}
+
+/* 내용 */
+.inner{max-width:480px;margin:0 auto;padding:12px}
+.card{background:#fff;border:1px solid #eee;border-radius:14px;padding:12px;margin-bottom:12px}
+.sectionTitle{font-weight:800;margin-bottom:8px}
+.kv{display:grid;grid-template-columns:100px 1fr;gap:8px}
+.k{color:#6b7280}
+.v{color:#111}
+
+.rowBtns{display:flex;gap:8px}
+.ghostBtn{flex:1;height:44px;border:1px solid #e5e7eb;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;gap:6px}
+
+.note{color:#6b7280;margin-bottom:8px}
+.dangerBtn{height:44px;width:100%;border:1px solid #fca5a5;border-radius:10px;background:#fff;color:#b91c1c;font-weight:700;display:flex;align-items:center;justify-content:center;gap:6px}
+.dangerBtn:hover{background:#fff1f1}
