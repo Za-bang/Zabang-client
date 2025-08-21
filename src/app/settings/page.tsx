@@ -257,7 +257,7 @@
 //   );
 // }
 
-export function Settings(){
+export default function Settings(){
 
   return (
     <div>임시페이지</div>
