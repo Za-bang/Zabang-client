@@ -4,36 +4,37 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import styles from "../page.module.css";
 import AddAPhotoRoundedIcon from "@mui/icons-material/AddAPhotoRounded";
+import { ChangeEvent } from "react";
 
 const TAGS = ["공동구매", "1구역", "2구역", "3구역", "4구역"];
 
 export default function WritePost() {
-  const router = useRouter();
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
-  const [tags, setTags] = useState([]);
-  const [imageDataUrl, setImageDataUrl] = useState("");
+  // const router = useRouter();
+  // const [title, setTitle] = useState("");
+  // const [body, setBody] = useState("");
+  // const [tags, setTags] = useState<string[]>([]);
+  // const [imageDataUrl, setImageDataUrl] = useState("");
 
-  const toggleTag = (t) =>
-    setTags((prev) => (prev.includes(t) ? prev.filter((x) => x !== t) : [...prev, t]));
+  // const toggleTag = (t: string) =>
+  //   setTags((prev) => (prev.includes(t) ? prev.filter((x) => x !== t) : [...prev, t]));
 
-  const onFile = (e) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = () => setImageDataUrl(String(reader.result || ""));
-    reader.readAsDataURL(file);
-  };
+  // const onFile = (e: ChangeEvent<HTMLInputElement>) => {
+  //   const file = e.target.files?.[0];
+  //   if (!file) return;
+  //   const reader = new FileReader();
+  //   reader.onload = () => setImageDataUrl(String(reader.result || ""));
+  //   reader.readAsDataURL(file);
+  // };
 
-  const submit = () => {
-    if (!title.trim()) return alert("제목을 입력하세요.");
-    const newPost = addPost({ title, body, tags, imageDataUrl });
-    router.push(`/community/view?id=${newPost.id}`);
-  };
+  // const submit = () => {
+  //   if (!title.trim()) return alert("제목을 입력하세요.");
+  //   const newPost = addPost({ title, body, tags, imageDataUrl });
+  //   router.push(`/community/view?id=${newPost.id}`);
+  // };
 
   return (
     <div className={styles.page}>
-      <div className={styles.head}>
+      {/* <div className={styles.head}>
         <div className={styles.headerInner}>
         <button className={styles.headerCancle} onClick={() => router.back()}>취소</button>
         <div className={styles.headerTitle}>글 쓰기</div>
@@ -77,7 +78,8 @@ export default function WritePost() {
             </button>
           ))}
         </div>
-      </div>
+      </div> */}
+      빈페이지
       </div>
   );
 }
