@@ -1,0 +1,56 @@
+/* ===== 헤더 ===== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #fff;
+}
+
+.headerInner {
+  height: clamp(3rem, 15vw, 6rem);
+  margin-left: clamp(1rem, 2vw, 2rem);
+  margin-right: clamp(1rem, 2vw, 2rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: clamp(8rem, 15vw, 13rem);
+}
+
+.headerIcon{
+  font-size: clamp(1.5rem, 3vw, 2.5rem) !important;
+}
+
+/* ===== 하단 탭바 ===== */
+.bottomNav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  background: #fff;
+  border-top: 1px solid #eee;
+}
+
+.bottomInner {
+  height: clamp(4rem, 10vw, 6rem);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.tabBtn {
+  display: grid;
+  place-items: center;
+  color: #B6B6B6;
+}
+
+.tabActive {
+  color: #000;
+}
+
+.bottomIcon {
+  font-size: clamp(1.5rem, 3vw, 2.5rem) !important;
+}
+

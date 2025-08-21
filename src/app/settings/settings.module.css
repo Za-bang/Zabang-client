@@ -1,0 +1,63 @@
+/* 공통 */
+.page *,.page *::before,.page *::after{box-sizing:border-box}
+.page{min-height:100dvh;background:#f7f7f8;color-scheme:light}
+.inner{max-width:480px;margin:0 auto;padding:10px 12px 96px}
+
+/* 카드 */
+.card{background:#fff;border:1px solid #eee;border-radius:14px;padding:12px;margin-bottom:12px}
+.cardDanger{background:#fff5f5;border:1px solid #ffe3e3;border-radius:14px;padding:12px;margin-bottom:24px;display:flex;gap:8px;justify-content:space-between}
+.cardTitle{display:flex;align-items:center;gap:8px;font-weight:800;margin-bottom:8px}
+.subLabel{margin-top:8px;margin-bottom:6px;color:#6b7280;font-size:12px}
+.muted{color:#9aa0a6}
+
+/* 저장됨 뱃지 */
+.savedBadge{display:inline-flex;align-items:center;gap:4px;margin-left:6px;padding:2px 6px;border-radius:999px;background:#ecfdf5;color:#065f46;font-size:12px;border:1px solid #a7f3d0}
+
+/* ── 인스타 스타일: 상단 중앙 큰 아바타 ── */
+.avatarCenterWrap{
+  position:relative;
+  width:100%;
+  display:flex; align-items:center; justify-content:center;
+  margin:6px 0 14px;
+}
+.avatarLg{width:104px;height:104px;border-radius:50%;object-fit:cover;background:#eef2f7;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.avatarLgPlaceholder{width:104px;height:104px;border-radius:50%;display:grid;place-items:center;background:#eef2f7;color:#9aa0a6;font-weight:800;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.avatarEditBtn{
+  position:absolute; right:calc(50% - 52px + 68px); bottom:4px;
+  width:32px;height:32px;border-radius:50%;
+  display:grid;place-items:center;border:1px solid #e5e7eb;background:#fff;
+}
+
+/* 폼 */
+.formCol{display:flex;flex-direction:column;gap:8px;min-width:0}
+.field{display:grid;grid-template-columns:72px 1fr;gap:8px;align-items:center}
+@media (max-width:420px){.field{grid-template-columns:64px 1fr}}
+.label{color:#6b7280;font-size:12px}
+.input{width:100%;height:40px;border:1px solid #e5e7eb;border-radius:10px;padding:0 10px;background:#fff;color:#111;outline:none}
+
+/* 토글/체크 행 */
+.row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid #f5f5f5}
+.row:first-of-type{border-top:none}
+.rowDisabled{opacity:.5;pointer-events:none}
+.switch{appearance:none;width:42px;height:24px;background:#e5e7eb;border-radius:999px;position:relative;outline:none;cursor:pointer;transition:.15s}
+.switch:checked{background:#6a5cff}
+.switch::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;background:#fff;border-radius:50%;transition:.15s}
+.switch:checked::after{left:21px}
+
+/* 칩 */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:6px 10px;border-radius:999px;border:1px solid #e5e7eb;background:#fff;color:#374151}
+.chipOn{background:#6a5cff;color:#fff;border-color:#6a5cff}
+
+/* 리스트형 링크/버튼 */
+.listRow{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid #f5f5f5;cursor:pointer;color:#111;text-decoration:none}
+.listRow:first-of-type{border-top:none}
+.chev{color:#9aa0a6}
+.rightBtn{padding:6px 10px;border-radius:8px;border:1px solid #e5e7eb;background:#fff;color:#374151}
+
+/* 위험구역 버튼 */
+.ghostRed{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;height:40px;border-radius:10px;border:1px solid #fca5a5;background:#fff;color:#b91c1c;font-weight:700}
+.ghostRed:hover{background:#fff1f1}
+
+/* 링크 */
+.link{color:#4f46e5}
