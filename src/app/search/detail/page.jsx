@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import styles from "../search.module.css";
 import { LISTINGS } from "../_data";
 import ArrowBackIosNewRoundedIcon from "@mui/icons-material/ArrowBackIosNewRounded";
-import BottomNav from "../../Components/BottomNav";
+import BottomNav from "@/Components/BottomNav";
 
 export default function ListingDetailPage() {
   const router = useRouter();
