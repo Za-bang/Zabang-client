@@ -6,7 +6,7 @@ import styles from "./search.module.css";
 import { TAG_GROUPS } from "./_data";
 import ArrowBackIosNewRoundedIcon from "@mui/icons-material/ArrowBackIosNewRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import BottomNav from "../Components/BottomNav";
+import BottomNav from "@/Components/BottomNav";
 
 export default function SearchFilterPage() {
   const router = useRouter();

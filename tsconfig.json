@@ -36,6 +36,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/types/**/*.d.ts"
-  ],
+, "src/app/layout.js"  ],
   "exclude": ["node_modules"]
 }

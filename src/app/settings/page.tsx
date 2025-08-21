@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./settings.module.css";
 import { loadProfile, saveProfile } from "./_store";
-import Header from "../Components/Header";
-import BottomNav from "../Components/BottomNav";
+import Header from "@/Components/Header";
+import BottomNav from "@/Components/BottomNav";
 import { APP_VERSION } from "../_version";
 
 // icons
