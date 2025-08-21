@@ -6,7 +6,7 @@ import styles from "../search.module.css";
 import { filterListings } from "../_data";
 import ArrowBackIosNewRoundedIcon from "@mui/icons-material/ArrowBackIosNewRounded";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
-import BottomNav from "../../Components/BottomNav";
+import BottomNav from "@/Components/BottomNav";
 
 export default function SearchResultsPage() {
   const router = useRouter();

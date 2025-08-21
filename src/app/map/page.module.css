@@ -1,0 +1,10 @@
+.page {
+  height: 100dvh;
+  background-color: #fff;
+}
+
+.main {
+  padding: clamp(1rem, 2vw, 2rem);
+  width: clamp(20rem, 100vw, 70rem);
+  margin: 0 auto;
+}
