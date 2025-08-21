@@ -25,7 +25,9 @@ jobs:
       - name: client build
         env:
          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
-        run: npm run build
+        run: |
+          npm run build
+          npm run export
 
       - name: Set up SSH key
         run: |
