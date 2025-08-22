@@ -52,13 +52,14 @@ export default function WritePost() {
   return (
     <div className={styles.page}>
       <Header />
-
-      <div className={styles.main}>
+        <div className={styles.titleWrapper}>
         <div className={styles.title}>
           <button className={styles.subBtn} onClick={() => history.back()}>취소</button>
           <div className={styles.titleName}>글쓰기</div>
           <button className={styles.subBtn} onClick={handleSubmit}>등록</button>
         </div>
+</div>
+      <div className={styles.main}>
 
         {/* 제목 */}
         <input
