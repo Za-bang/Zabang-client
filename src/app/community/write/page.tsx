@@ -52,22 +52,15 @@ export default function WritePost() {
   return (
     <div className={styles.page}>
       <Header />
-        <div className={styles.titleWrapper}>
-        <div className={styles.title}>
-          <button className={styles.subBtn} onClick={() => history.back()}>취소</button>
-          <div className={styles.titleName}>글쓰기</div>
-          <button className={styles.subBtn} onClick={handleSubmit}>등록</button>
-        </div>
-</div>
+      <div className={styles.title}></div>
       <div className={styles.main}>
-
         {/* 제목 */}
         <input
           type="text"
           placeholder="제목"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-        className={styles.textTitle}
+          className={styles.textTitle}
         />
 
         {/* 내용 */}
@@ -84,20 +77,31 @@ export default function WritePost() {
         <div>
           <div className={styles.tagTitle}>태그 선택</div>
           <div>
-            {FILTERS.map((t, idx) => idx === 0 ? null : ( 
-              <button
-                key={t}
-                onClick={() => toggleTag(t)}
-                className={`${styles.tag} ${
-                  tags.includes(t) ? styles.tagActive : ""
-                }`}
-              >
-                {t}
-              </button>
-            ))}
+            {FILTERS.map((t, idx) =>
+              idx === 0 ? null : (
+                <button
+                  key={t}
+                  onClick={() => toggleTag(t)}
+                  className={`${styles.tag} ${
+                    tags.includes(t) ? styles.tagActive : ""
+                  }`}
+                >
+                  {t}
+                </button>
+              )
+            )}
           </div>
         </div>
+        <div className={styles.btnGroup}>
+          <button className={styles.cancelBtn} onClick={() => history.back()}>
+            취소
+          </button>
+          <button className={styles.submitBtn} onClick={handleSubmit}>
+            등록
+          </button>
+        </div>
       </div>
+
       <BottomNav active="board" />
     </div>
   );

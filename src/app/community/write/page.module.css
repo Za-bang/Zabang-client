@@ -3,35 +3,7 @@
   display: flex;
   flex-direction: column;
   background-color: #fff;
-}
-
-.titleWrapper {
-  border-bottom: 1px solid #e2e2e2;
-  width: 100%;
-}
-
-.title {
-  display: flex;
-  margin: 0 auto;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: clamp(0.5rem, 2vw, 0.7rem);
   padding-bottom: clamp(1rem, 3vw, 2rem);
-}
-
-.titleName {
-  flex: 1;
-  text-align: center;
-  font-weight: bold;
-  font-size: clamp(1.2rem, 2vw, 1.6rem);
-}
-
-.subBtn {
-  font-size: clamp(1rem, 1.8vw, 1.3rem);
-  font-weight: bold;
-  color: #ababab;
-  cursor: pointer;
-  padding: clamp(0.5rem, 2vw, 0.7rem) clamp(2rem, 5vw, 3rem);
 }
 
 .main {
@@ -105,4 +77,34 @@
   background: #BC76BA;
   border-color: #BC76BA;
   font-weight: bold;
+}
+
+.btnGroup {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: clamp(2rem, 6vw, 7rem);
+  margin-bottom: 2rem;
+}
+
+.submitBtn,
+.cancelBtn {
+  flex: 1;
+  padding: clamp(0.4rem, 1.5vw, 0.6rem);
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.cancelBtn {
+  border: 1px solid #8a79d4;
+  background: #ffffff;
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+}
+
+.submitBtn {
+  background: #8a79d4;
+  color: white;
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
 }
