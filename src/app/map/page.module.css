@@ -4,12 +4,15 @@
 }
 
 .main {
-  padding: clamp(1rem, 2vw, 2rem);
-  width: 100%;         
-  max-width: 65rem;  
+  padding-top: clamp(1rem, 2vw, 2rem);
+  padding-left: clamp(1rem, 2vw, 2rem);
+  padding-right: clamp(1rem, 2vw, 2rem);
+  width: 100%;
+  max-width: 65rem;
   margin: 0 auto;
+  padding-bottom: clamp(5rem, 10vw, 7rem);
 }
 
-.propertyPrev{
-  margin-top: clamp(2rem, 3vw, 2.2rem);
+.propertyPrev {
+  margin-top: clamp(1.5rem, 2.5vw, 2rem);  
 }
