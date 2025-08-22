@@ -18,7 +18,7 @@ export default function CommunityPage() {
   //새로운 게시글 작성
   const router = useRouter();
   const handleGoToWrite = () => {
-    router.push("./writePost");
+    router.push("./writepost");
   };
 
   //게시글 목록 나타내기
