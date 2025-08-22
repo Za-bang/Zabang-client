@@ -31,7 +31,7 @@ export default function MapPage() {
         />
       </div>
 
-      <BottomNav />
+      <BottomNav active="map"/>
     </div>
   );
 }
