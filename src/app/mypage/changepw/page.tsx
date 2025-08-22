@@ -1,6 +1,6 @@
 "use client";
 import styles from "./page.module.css";
-import MypageHeader from "@/Components/MypageHeader";
+import Header from "@/Components/Header";
 import BottomNav from "@/Components/BottomNav";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -31,7 +31,7 @@ export default function ChangePW() {
 
   return (
     <div className={styles.page}>
-      <MypageHeader />
+      <Header />
       <div className={styles.main}>
         <h2 className={styles.title}>비밀번호 변경</h2>
 

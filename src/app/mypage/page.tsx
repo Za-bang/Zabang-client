@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./page.module.css";
-import MypageHeader from "@/Components/MypageHeader";
+import Header from "@/Components/Header";
 import BottomNav from "@/Components/BottomNav";
 import { APP_VERSION } from "../_version";
 import { useState, useEffect } from "react";
@@ -40,7 +40,7 @@ export default function Mypage() {
 
   return (
     <div className={styles.page}>
-      <MypageHeader />
+      <Header />
 
       <div className={styles.main}>
         <section className={styles.card}>
