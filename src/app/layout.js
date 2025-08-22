@@ -14,6 +14,11 @@ export const metadata = {
 
 import Script from "next/script";
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="ko">
