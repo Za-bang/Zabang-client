@@ -5,7 +5,7 @@ import styles from "./nav.module.css";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import MapRoundedIcon from "@mui/icons-material/MapRounded";
 import ForumRoundedIcon from "@mui/icons-material/ForumRounded";
-import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
+import PersonIcon from '@mui/icons-material/Person';
 
 export default function BottomNav({ active = "home" }) {
   return (
@@ -36,7 +36,7 @@ export default function BottomNav({ active = "home" }) {
           href="/settings"
           className={`${styles.tabBtn} ${active === "settings" ? styles.tabActive : ""}`}
         >
-          <SettingsRoundedIcon fontSize="inherit" className={styles.bottomIcon} />
+          <PersonIcon fontSize="inherit" className={styles.bottomIcon} />
         </Link>
       </div>
     </nav>
