@@ -7,7 +7,11 @@ import {fetchReviews} from "@/api/reviews"
 import ReviewList from "./ReviewList";
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
-import { KakaoMap } from "./map/Components/KakaoMap";
+import dynamic from "next/dynamic";
+
+const KMap = dynamic(() => import("./map/Components/KakaoMap").then(mod => mod.KakaoMap), {
+  ssr: false,
+});
 
 export default function HomePage() {
 
@@ -33,7 +37,7 @@ export default function HomePage() {
         <section className={styles.section}>
           <div className={styles.sectionTitle}>근처 방 찾기</div>
           <div className={styles.mapCard} >
-              <KakaoMap />
+              <KMap />
           </div>
         </section>
       </main>

@@ -4,7 +4,7 @@ import BottomNav from "@/Components/BottomNav";
 import Header from "@/Components/Header";
 import PropertyPreview from "./Components/PropertyPreview";
 import type { PropertyPre } from "@/types/PropertyPreview";
-import { KakaoMap } from "./Components/KakaoMap";
+import dynamic from "next/dynamic";
 
 const demo: PropertyPre = {
   id: "1",
@@ -17,13 +17,17 @@ const demo: PropertyPre = {
   keywords: ["정수기", "채광좋음", "깨끗함"],
 };
 
+const KMap = dynamic(() => import("./Components/KakaoMap").then(mod => mod.KakaoMap), {
+  ssr: false,
+});
+
 export default function MapPage() {
   return (
     <div className={styles.page}>
       <Header />
 
       <div className={styles.main}>
-        <KakaoMap
+        <KMap
         />
         <PropertyPreview 
           data={demo}
