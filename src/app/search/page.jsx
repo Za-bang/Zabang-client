@@ -6,10 +6,11 @@ import styles from "./page.module.css";
 import { TAG_GROUPS } from "@/types/constants";
 import ArrowBackIosNewRoundedIcon from "@mui/icons-material/ArrowBackIosNewRounded";
 import BottomNav from "@/Components/BottomNav";
+import SearchBar from "./SearchBar";
 
 export default function SearchFilterPage() {
   const router = useRouter();
-  const [keyword, setKeyword] = useState("");
+  const [keyword] = useState("");
   const [selected, setSelected] = useState([]); // 문자열 배열
 
   const toggle = (tag) =>
@@ -41,12 +42,7 @@ export default function SearchFilterPage() {
           </button>
         </div>
         <div className={styles.center}>
-          <input
-            className={styles.searchInput}
-            placeholder="검색어를 입력하거나 조건을 선택하세요."
-            value={keyword}
-            onChange={(e) => setKeyword(e.target.value)}
-          />
+          <SearchBar />
         </div>
         <div className={styles.right}></div>
       </div>

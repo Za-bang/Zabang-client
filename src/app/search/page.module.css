@@ -11,7 +11,8 @@
   height: clamp(3.5rem, 7vw, 4.5rem);
   z-index: 20;
   background: #fff;
-  display: grid;
+  display: flex;
+  width: 100%;
   grid-template-columns: auto 1fr auto;
   align-items: center;
   padding: 0 clamp(0.5rem, 2vw, 1.5rem);
@@ -26,9 +27,12 @@
 }
 
 .center {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 60rem;
+  margin: 0 auto;
 }
 
 .iconBtn {
@@ -40,18 +44,6 @@
 
 .iconBtn:hover {
   background: #f4f6f8;
-}
-
-.searchInput {
-  width: 100%;
-  max-width: 60rem;
-  height: clamp(2.5rem, 4vw, 3rem);
-  border-radius: 999px;
-  border: 1px solid #bebebe;
-  padding: 0 1rem;
-  background: #f5f5f5;
-  outline: none;
-  font-size: clamp(0.75rem, 1.5vw, 0.95rem);
 }
 
 .main {
