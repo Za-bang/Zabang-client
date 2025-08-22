@@ -23,9 +23,8 @@ jobs:
         env:
           NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
           NEXT_PUBLIC_KAKAO_MAP_KEY: ${{ secrets.NEXT_PUBLIC_KAKAO_MAP_KEY }}
-        run: |
+        run: 
           npm run build
-          npm run export
 
       - name: Set up SSH key
         run: |
