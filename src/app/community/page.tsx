@@ -5,7 +5,7 @@ import styles from "./page.module.css";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import Header from "@/Components/Header";
 import BottomNav from "@/Components/BottomNav";
-import { FILTERS } from "@/types/post";
+import { FILTERS } from "@/types/constants";
 import { useRouter } from "next/navigation";
 import type { Post } from "@/types/post";
 import PostCardList from "./Components/PostCardList";

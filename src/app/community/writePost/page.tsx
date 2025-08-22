@@ -3,8 +3,8 @@ import styles from "./page.module.css";
 import Header from "@/Components/Header";
 import BottomNav from "@/Components/BottomNav";
 import { useState } from "react";
-import UploadImageButton from "./Components/UploadImgBtn";
-import { FILTERS } from "@/types/post";
+import UploadImageButton from "./UploadImgBtn";
+import { FILTERS } from "@/types/constants";
 
 export default function WritePost() {
   const [title, setTitle] = useState("");
