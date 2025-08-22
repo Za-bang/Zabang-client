@@ -1,4 +1,3 @@
-/* ===== 헤더 ===== */
 .header {
   position: sticky;
   top: 0;
@@ -31,7 +30,7 @@
   bottom: 0;
   z-index: 30;
   background: #fff;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #e2e2e2;
 }
 
 .bottomInner {
@@ -51,5 +50,5 @@
 }
 
 .bottomIcon {
-  font-size: clamp(1rem, 2vw, 1.5rem) !important;  
+  font-size: clamp(1.5rem, 3vw, 2.3rem) !important;  
 }

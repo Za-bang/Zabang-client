@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import styles from "../search.module.css";
+import styles from "./page.module.css";
 import { LISTINGS } from "../_data";
 import ArrowBackIosNewRoundedIcon from "@mui/icons-material/ArrowBackIosNewRounded";
 import BottomNav from "@/Components/BottomNav";
@@ -14,23 +14,23 @@ export default function ListingDetailPage() {
 
   const item = useMemo(() => LISTINGS.find((x) => x.id === id), [id]);
 
-  if (!item) {
-    return (
-      <div className={styles.page}>
-        <div className={styles.topbar}>
-          <button className={styles.iconBtn} onClick={() => router.back()}>
-            <ArrowBackIosNewRoundedIcon fontSize="small" />
-          </button>
-          <div className={styles.resultsTitle}>매물 상세정보</div>
-          <div style={{ width: 36 }} />
-        </div>
-        <div className={styles.inner}>
-          <div className={styles.emptyBox}>해당 매물을 찾을 수 없습니다.</div>
-        </div>
-        <BottomNav active="home" />
-      </div>
-    );
-  }
+  // if (!item) {
+  //   return (
+  //     <div className={styles.page}>
+  //       <div className={styles.topbar}>
+  //         <button className={styles.iconBtn} onClick={() => router.back()}>
+  //           <ArrowBackIosNewRoundedIcon fontSize="small" />
+  //         </button>
+  //         <div className={styles.resultsTitle}>매물 상세정보</div>
+  //         <div style={{ width: 36 }} />
+  //       </div>
+  //       <div className={styles.inner}>
+  //         <div className={styles.emptyBox}>해당 매물을 찾을 수 없습니다.</div>
+  //       </div>
+  //       <BottomNav active="home" />
+  //     </div>
+  //   );
+  // }
 
   const hasImages = item.images && item.images.length > 0;
 
