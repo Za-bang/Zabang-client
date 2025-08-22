@@ -7,20 +7,20 @@
 }
 
 .headerInner {
-  height: clamp(3rem, 6vw, 4.5rem);
-  margin-left: clamp(1rem, 2vw, 2rem);
-  margin-right: clamp(1rem, 2vw, 2rem);
+  height: clamp(2.5rem, 5vw, 3.8rem);   
+  margin-left: clamp(0.8rem, 1.5vw, 1.6rem);
+  margin-right: clamp(0.8rem, 1.5vw, 1.6rem);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .logo {
-  width: clamp(8rem, 12vw, 10rem);
+  width: clamp(6.5rem, 10vw, 8.5rem);  
 }
 
 .headerIcon{
-  font-size: clamp(1.5rem, 2.5vw, 2rem) !important;
+  font-size: clamp(1.2rem, 2vw, 1.6rem) !important;  
 }
 
 /* ===== 하단 탭바 ===== */
@@ -35,7 +35,7 @@
 }
 
 .bottomInner {
-  height: clamp(3.5rem, 8vw, 5rem);
+  height: clamp(3rem, 6vw, 4.2rem);  
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
@@ -51,6 +51,5 @@
 }
 
 .bottomIcon {
-  font-size: clamp(1.2rem, 2.5vw, 1.8rem) !important;
+  font-size: clamp(1rem, 2vw, 1.5rem) !important;  
 }
-
