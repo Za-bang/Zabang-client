@@ -97,7 +97,7 @@ export default function WritePost() {
           </div>
         </div>
       </div>
-      <BottomNav />
+      <BottomNav active="board" />
     </div>
   );
 }
