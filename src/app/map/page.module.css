@@ -5,6 +5,11 @@
 
 .main {
   padding: clamp(1rem, 2vw, 2rem);
-  width: clamp(20rem, 100vw, 70rem);
+  width: 100%;         
+  max-width: 65rem;  
   margin: 0 auto;
+}
+
+.propertyPrev{
+  margin-top: clamp(2rem, 3vw, 2.2rem);
 }
