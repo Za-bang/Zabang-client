@@ -29,10 +29,12 @@ export default function MapPage() {
       <div className={styles.main}>
         <KMap
         />
+        <div className={styles.propertyPrev}>
         <PropertyPreview 
           data={demo}
           onClick={(id) => console.log("go detail:", id)}
         />
+        </div>
       </div>
 
       <BottomNav active="map"/>
