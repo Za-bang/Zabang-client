@@ -33,8 +33,8 @@ export default function BottomNav({ active = "home" }) {
         </Link>
 
         <Link
-          href="/settings"
-          className={`${styles.tabBtn} ${active === "settings" ? styles.tabActive : ""}`}
+          href="/mypage"
+          className={`${styles.tabBtn} ${active === "mypage" ? styles.tabActive : ""}`}
         >
           <PersonIcon fontSize="inherit" className={styles.bottomIcon} />
         </Link>
