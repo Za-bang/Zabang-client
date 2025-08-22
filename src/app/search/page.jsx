@@ -2,11 +2,11 @@
 
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import styles from "./search.module.css";
-import { TAG_GROUPS } from "./_data";
+import styles from "./page.module.css";
+import { TAG_GROUPS } from "@/types/constants";
 import ArrowBackIosNewRoundedIcon from "@mui/icons-material/ArrowBackIosNewRounded";
-import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import BottomNav from "@/Components/BottomNav";
+
 
 export default function SearchFilterPage() {
   const router = useRouter();
@@ -26,27 +26,23 @@ export default function SearchFilterPage() {
 
   return (
     <div className={styles.page}>
-      {/* 상단 바 */}
       <div className={styles.topbar}>
         <button className={styles.iconBtn} onClick={() => router.back()} aria-label="뒤로가기">
           <ArrowBackIosNewRoundedIcon fontSize="small" />
         </button>
         <input
           className={styles.searchInput}
-          placeholder="검색어를 입력하거나 조건을 선택해요."
+          placeholder="검색어를 입력하거나 조건을 선택하세요."
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)}
         />
-        <button className={styles.closeBtn} onClick={() => router.back()}>
-          <CloseRoundedIcon />
-          <span>닫기</span>
-        </button>
       </div>
-
-      <div className={styles.inner}>
+      {/* 메인 */}
+      <div className={styles.main}>
+        <div>
         {TAG_GROUPS.map((group) => (
           <section key={group.key} className={styles.group}>
-            <h3 className={styles.groupTitle}>{group.label}</h3>
+            <div className={styles.groupTitle}>{group.label}</div>
             <div className={styles.chips}>
               {group.tags.map((t) => (
                 <button
@@ -67,8 +63,8 @@ export default function SearchFilterPage() {
           검색하기
         </button>
       </div>
-
-      <BottomNav active="home" />
+</div>
+      <BottomNav active="" />
     </div>
   );
 }

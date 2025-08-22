@@ -7,7 +7,12 @@ import MapRoundedIcon from "@mui/icons-material/MapRounded";
 import ForumRoundedIcon from "@mui/icons-material/ForumRounded";
 import PersonIcon from '@mui/icons-material/Person';
 
-export default function BottomNav({ active = "home" }) {
+
+interface BottomNavProps {
+  active?: "home" | "map" | "board" | "mypage" | "none";
+}
+
+export default function BottomNav({ active = "none" }:BottomNavProps) {
   return (
     <nav className={styles.bottomNav} role="navigation" aria-label="하단탭">
       <div className={styles.bottomInner}>
