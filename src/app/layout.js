@@ -2,9 +2,9 @@ import "./globals.css";
 import { Noto_Sans_KR } from "next/font/google";
 
 const noto = Noto_Sans_KR({
-  weight: ["400", "500", "700", "900"], // 자주 쓰는 굵기만 포함 → 용량↓
-  subsets: ["latin"],                   // KR 글꼴은 자동 포함됨
-  display: "swap",                      // FOUT 최소화
+  weight: ["400", "500", "700", "900"], 
+  subsets: ["latin"],                   
+  display: "swap",                      
 });
 
 export const metadata = {
