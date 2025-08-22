@@ -6,16 +6,19 @@
 .main {
   padding: clamp(1rem, 2vw, 2rem);
   width: clamp(20rem, 100vw, 70rem);
+  max-width: 65rem;
   margin: 0 auto;
 }
 
 /***** 카테고리 *****/
 .filterRow {
   display: flex;
-  gap: clamp(0.16rem, 0.5vw, 0.5rem);
-  flex-wrap: wrap;
+  gap: clamp(0.25rem, 1vw, 0.6rem); 
   margin-bottom:clamp(0.7rem, 1.2vw, 1.2rem);
   font-weight: bold;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
 }
 
 .chip {
@@ -23,9 +26,10 @@
   border-radius: 100vh;
   background: #fff;
   color: #4b5563;
-  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
   border: 1.5px solid #CCCCCC;
   cursor: pointer;
+  line-height: 1.5;  
 }
 
 .chipActive {
@@ -35,10 +39,10 @@
 
 .fab {
   position: fixed;
-  right: clamp(1rem, 3vw, 3rem);
-  bottom: clamp(5rem, 10vw, 8rem);
-  width: clamp(3.3rem, 5vw, 5rem);
-  height: clamp(3.3rem, 5vw, 5rem);
+  right: clamp(1rem, 2vw, 2rem);    
+  bottom: clamp(4.5rem, 8vw, 6rem);  
+  width: clamp(3.2rem, 4.5vw, 4rem); 
+  height: clamp(3.2rem, 4.5vw, 4rem);
   border-radius: 50%;
   display: grid;
   place-items: center;

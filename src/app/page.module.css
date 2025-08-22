@@ -5,7 +5,8 @@
 
 .main {
   padding: clamp(1rem, 2vw, 2rem);
-  width: clamp(20rem, 100vw, 70rem);
+  width: 100%;
+    max-width: 65rem;
   margin: 0 auto;
 }
 
@@ -14,7 +15,7 @@
 }
 
 .sectionTitle {
-  font-size: clamp(1.2rem, 2vw, 2rem);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
   font-weight: 700;
   margin:0px 0px 8px 8px; 
   color: #222;
@@ -36,15 +37,15 @@
 
 .reviewPlace {
   font-weight: bold;
-  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-size: clamp(1rem, 2vw, 1.3rem); 
   margin-bottom: 4px;
   color: #1d1d1f;
 }
 
 .reviewText {
-  font-size: clamp(0.85rem, 2vw, 1.2rem);
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem); 
   color: #444;
-  line-height: 1.35;
+  line-height: 1.5; 
 }
 
 .metaRow {
@@ -55,7 +56,7 @@
 }
 
 .date {
-  font-size: clamp(0.75rem, 2vw, 1.1rem);
+  font-size: clamp(0.75rem, 1.5vw, 0.95rem);
   color: #9aa0a6;
 }
 
@@ -63,12 +64,12 @@
   display: inline-flex;
   gap: 4px;
   align-items: center;
-  font-size: clamp(0.75rem, 2vw, 1.1rem);
+  font-size: clamp(0.75rem, 1.5vw, 0.95rem);
   color: #9aa0a6;
 }
 
 .chatIcon {
-  font-size: clamp(0.9rem, 2vw, 1.4rem) !important;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem) !important;
   color: #9aa0a6;
 }
 /* ===== 지도 카드 ===== */
@@ -84,7 +85,7 @@
   display: grid;
   place-items: center;
   color: #7a7a7a;
-  font-size: 14px;
+  font-size: 0.9rem;
   background: linear-gradient(180deg, #f3f5f7, #e9edf1);
 }
 
