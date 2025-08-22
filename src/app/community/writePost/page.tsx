@@ -1,86 +1,103 @@
 "use client";
-
-import { useRouter } from "next/navigation";
+import styles from "./page.module.css";
+import Header from "@/Components/Header";
+import BottomNav from "@/Components/BottomNav";
 import { useState } from "react";
-import styles from "../page.module.css";
-import AddAPhotoRoundedIcon from "@mui/icons-material/AddAPhotoRounded";
-import { ChangeEvent } from "react";
-
-const TAGS = ["공동구매", "1구역", "2구역", "3구역", "4구역"];
+import UploadImageButton from "./Components/UploadImgBtn";
+import { FILTERS } from "@/types/post";
 
 export default function WritePost() {
-  // const router = useRouter();
-  // const [title, setTitle] = useState("");
-  // const [body, setBody] = useState("");
-  // const [tags, setTags] = useState<string[]>([]);
-  // const [imageDataUrl, setImageDataUrl] = useState("");
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [tags, setTags] = useState<string[]>([]);
 
-  // const toggleTag = (t: string) =>
-  //   setTags((prev) => (prev.includes(t) ? prev.filter((x) => x !== t) : [...prev, t]));
+  const toggleTag = (tag: string) => {
+    setTags((prev) =>
+      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+    );
+  };
 
-  // const onFile = (e: ChangeEvent<HTMLInputElement>) => {
-  //   const file = e.target.files?.[0];
-  //   if (!file) return;
-  //   const reader = new FileReader();
-  //   reader.onload = () => setImageDataUrl(String(reader.result || ""));
-  //   reader.readAsDataURL(file);
-  // };
+  const handleSubmit = async () => {
+    if (!title || !content) {
+      alert("제목과 내용을 입력하세요.");
+      return;
+    }
 
-  // const submit = () => {
-  //   if (!title.trim()) return alert("제목을 입력하세요.");
-  //   const newPost = addPost({ title, body, tags, imageDataUrl });
-  //   router.push(`/community/view?id=${newPost.id}`);
-  // };
+    const payload = {
+      title,
+      content,
+      tags,
+    };
+
+    try {
+      const res = await fetch("http://localhost:8000/api/posts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error("등록 실패");
+
+      const data = await res.json();
+      alert("등록 성공!");
+      console.log(data);
+    } catch (err) {
+      console.error(err);
+      alert("등록에 실패했습니다.");
+    }
+  };
 
   return (
     <div className={styles.page}>
-      {/* <div className={styles.head}>
-        <div className={styles.headerInner}>
-        <button className={styles.headerCancle} onClick={() => router.back()}>취소</button>
-        <div className={styles.headerTitle}>글 쓰기</div>
-        <button className={styles.headerPost} onClick={submit}>등록</button>
-      </div>
-      </div>
+      <Header />
 
-      <div className={styles.writeWrap}>
-        <label className={styles.uploadBtn} aria-label="이미지 업로드">
-          {imageDataUrl ? (
-            <img src={imageDataUrl} alt="" style={{ width: 72, height: 72, borderRadius: 12, objectFit: "cover" }} />
-          ) : (
-            <AddAPhotoRoundedIcon />
-          )}
-          <input type="file" hidden accept="image/*" onChange={onFile} />
-        </label>
+      <div className={styles.main}>
+        <div className={styles.title}>
+          <button className={styles.subBtn} onClick={() => history.back()}>취소</button>
+          <div className={styles.titleName}>글쓰기</div>
+          <button className={styles.subBtn} onClick={handleSubmit}>등록</button>
+        </div>
 
+        {/* 제목 */}
         <input
-          className={styles.input}
+          type="text"
           placeholder="제목"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+        className={styles.textTitle}
         />
 
+        {/* 내용 */}
         <textarea
-          className={styles.textarea}
+          className={styles.textArea}
           placeholder="내용을 입력하세요."
-          value={body}
-          onChange={(e) => setBody(e.target.value)}
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
         />
-
-        <div style={{ marginTop: 12, fontSize: 13, color: "#6b7280" }}>태그 선택</div>
-        <div className={styles.tagRow}>
-          {TAGS.map((t) => (
-            <button
-              key={t}
-              onClick={() => toggleTag(t)}
-              className={`${styles.tagChip} ${tags.includes(t) ? styles.tagActive : ""}`}
-            >
-              {t}
-            </button>
-          ))}
+        <div className={styles.uploadImg}>
+          <UploadImageButton />
         </div>
-      </div> */}
-      빈페이지
+        {/* 태그 선택 */}
+        <div>
+          <div className={styles.tagTitle}>태그 선택</div>
+          <div>
+            {FILTERS.map((t, idx) => idx === 0 ? null : ( 
+              <button
+                key={t}
+                onClick={() => toggleTag(t)}
+                className={`${styles.tag} ${
+                  tags.includes(t) ? styles.tagActive : ""
+                }`}
+              >
+                {t}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
+      <BottomNav />
+    </div>
   );
 }
-
