@@ -5,7 +5,7 @@ import BottomNav from "@/Components/BottomNav";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function changePW() {
+export default function ChangePW() {
   const [currentPW, setCurrentPW] = useState("");
   const [newPW, setNewPW] = useState("");
 
@@ -28,7 +28,7 @@ export default function changePW() {
   const handleGoToMyPage = () => {
     router.push("../");
   };
-  
+
   return (
     <div className={styles.page}>
       <MypageHeader />
