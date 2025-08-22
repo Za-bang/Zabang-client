@@ -1,36 +1,38 @@
 import "./globals.css";
 import { Noto_Sans_KR } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 
 const noto = Noto_Sans_KR({
-  weight: ["400", "500", "700", "900"], 
-  subsets: ["latin"],                   
-  display: "swap",                      
+  weight: ["400", "500", "700", "900"],
+  subsets: ["latin"],
+  display: "swap",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "ZaBang",
   description: "주변 자취방 리뷰/추천 플랫폼",
 };
 
-import Script from "next/script";
-
-export const viewport = {
+export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="ko">
       <body>
         {/* Kakao Map SDK */}
         <Script
           src={`https://dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_MAP_KEY}&autoload=false`}
-          strategy="beforeInteractive"   // 페이지 로드 전에 실행
+          strategy="beforeInteractive" // 페이지 로드 전에 실행
         />
-      <div className={noto.className}>
-        {children}
-        </div>
+        <div className={noto.className}>{children}</div>
       </body>
     </html>
   );

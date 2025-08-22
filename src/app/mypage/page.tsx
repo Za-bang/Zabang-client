@@ -3,7 +3,6 @@
 import styles from "./page.module.css";
 import Header from "@/Components/Header";
 import BottomNav from "@/Components/BottomNav";
-import { APP_VERSION } from "../_version";
 import { useState, useEffect } from "react";
 import DeleteAccount from "./Components/DeleteAccount";
 import { useRouter } from "next/navigation";
@@ -65,7 +64,7 @@ export default function Mypage() {
 
           <div className={styles.listRow}>
             <span>앱 버전</span>
-            <span className={styles.muted}>{APP_VERSION}</span>
+            <span className={styles.muted}>1.01</span>
           </div>
         </section>
         <div className={styles.btn}>
