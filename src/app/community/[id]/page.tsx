@@ -18,3 +18,10 @@
 
 //   return <CommunityPostDetail post={post} />;
 // }
+
+export function generateStaticParams() {
+
+  return (
+    <div>임시페이지</div>
+  )
+}
