@@ -7,9 +7,9 @@ import Header from "@/Components/Header";
 import BottomNav from "@/Components/BottomNav";
 import { FILTERS } from "@/types/constants";
 import { useRouter } from "next/navigation";
-import type { CommunityPost } from "@/types/communityPost";
+import type { PostListItem } from "@/types/community";
 import PostCardList from "./Components/PostCardList";
-import { MOCK_COMMUNITY_POST } from "@/data/demoPosts";
+import { MOCK_POST_LIST } from "@/data/demoCommunityPosts";
 
 export default function CommunityPage() {
   // 카테고리
@@ -22,14 +22,14 @@ export default function CommunityPage() {
   };
 
   // 게시글 목록 나타내기 (더미 데이터 사용)
-  const [posts] = useState<CommunityPost[]>(MOCK_COMMUNITY_POST);
+  const [posts] = useState<PostListItem[]>(MOCK_POST_LIST);
 
   const filteredPosts = useMemo(() => {
     if (filter === "전체") return posts;
-    if (filter === "공동구매") return posts.filter((p) => p.purchaseType === true);
-    if (filter.endsWith("구역")) return posts.filter((p) => p.region === filter);
+    if (filter === "공동구매") return posts.filter((p) => p.category=="GROUP_BUY");
+    if (filter.endsWith("구역")) return posts.filter((p) => p.areaTag === filter);
 
-    return posts;
+  return posts;
   }, [posts, filter]);
 
   return (

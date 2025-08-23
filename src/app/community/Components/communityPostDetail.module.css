@@ -1,0 +1,138 @@
+/* CommentSection.tsx */
+.reviewTitle {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+}
+
+.commentInput {
+  position: fixed;
+  bottom: clamp(3rem, 6vw, 4.2rem);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 65rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(0.4rem, 1.5vw, 0.8rem);
+  padding: clamp(0.4rem, 1.5vw, 0.8rem) clamp(0.6rem, 2vw, 1rem);
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.input {
+  flex: 1;
+  padding: clamp(0.4rem, 1.5vw, 0.7rem);
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+}
+
+.sendBtn {
+  padding: clamp(0.4rem, 1.5vw, 0.7rem) clamp(0.8rem, 2vw, 1.2rem);
+  background: #8E78EA;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  font-weight: bold;
+}
+
+/* CommunityPostDetail.tsx */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: clamp(0.6rem, 2vw, 1rem);
+}
+
+.profileCircle {
+  width: clamp(2.2rem, 5vw, 2.8rem);
+  height: clamp(2.2rem, 5vw, 2.8rem);
+  border-radius: 50%;
+  background: #ddd;
+  margin-right: clamp(0.4rem, 1.5vw, 0.8rem);
+}
+
+.authorInfo {
+  flex: 1;
+}
+
+.author {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-weight: bold;
+}
+
+.meta {
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  color: #666;
+}
+
+.badge {
+  padding: clamp(0.15rem, 0.8vw, 0.3rem) clamp(0.4rem, 1.5vw, 0.6rem);
+  border-radius: 999px;
+  font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+  font-weight: bold;
+}
+
+.badgeBlue {
+  background: #789AEA;
+  color: #fff;
+}
+
+.badgeGray {
+  background: #ADADAD;
+  color: #fff;
+}
+
+.title {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: bold;
+  margin-bottom: clamp(0.4rem, 1.5vw, 0.8rem);
+}
+
+.content {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  margin-bottom: clamp(0.8rem, 2vw, 1.2rem);
+  color: #333;
+}
+
+.imageRow {
+  display: flex;
+  gap: clamp(0.3rem, 1.5vw, 0.5rem);
+}
+
+.mainImage {
+  width: 100%;
+  max-width: clamp(14rem, 40vw, 20rem);
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.footer {
+    margin: clamp(0.8rem, 2vw, 1.2rem) 0;
+    font-size: clamp(0.75rem, 1.5vw, 0.95rem);
+}
+
+/* CommentItem.tsx */
+.reviewItem {
+  display: flex;
+  gap: clamp(0.4rem, 1.5vw, 0.8rem);
+  padding: clamp(0.5rem, 1.5vw, 0.8rem) 0;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.reviewAuthor {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-weight: bold;
+}
+
+.reviewMeta {
+  font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+  color: #888;
+}
+
+.reviewText {
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+  margin-top: 0.2rem;
+}
