@@ -10,14 +10,14 @@ export function generateStaticParams() {
 }
 
 interface PageProps {
-  params: {
-    id: string;
-  };
-  searchParams?: { [key: string]: string | string[] | undefined };
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-export default function PropertyPostPage({ params }: PageProps) {
-  const post = MOCK_PROPERTY_POST.find((p) => p.propertyId === params.id);
+export default async function PropertyPostPage({ params }: PageProps) {
+  const { id } = await params;
+
+  const post = MOCK_PROPERTY_POST.find((p) => p.propertyId === id);
   if (!post) return <div>매물을 찾을 수 없습니다.</div>;
 
   return (
