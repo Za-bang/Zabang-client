@@ -6,8 +6,8 @@ export type Comment = {
   date: string; 
 };
 
-//게시글
-export type Post = {
+//커뮤니티 게시글
+export type CommunityPost = {
   id: string;               //p1,p2,..
   purchaseType: boolean;    // 공동구매(true)
   purchaseStatus: boolean;  // 공동구매 상태: 진행중(True)
@@ -20,3 +20,4 @@ export type Post = {
   views: number;             //조회수
   comments: Comment[];
 };
+

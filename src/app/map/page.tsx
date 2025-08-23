@@ -8,7 +8,7 @@ import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import { IconButton } from "@mui/material";
 import { useRouter } from "next/navigation";
 import SearchBar from "@/app/search/SearchBar";
-import { demoProperties } from "@/data/demoProperties";
+import { MOCK_PROPERTY_POST } from "@/data/demoProperties";
 
 const KMap = dynamic(
   () => import("./Components/KakaoMap").then((mod) => mod.KakaoMap),
@@ -37,12 +37,8 @@ export default function MapPage() {
           </div>
         </div>
         <div className={styles.propertyPrev}>
-          {demoProperties.map((item) => (
-            <PropertyPreview
-              key={item.id}
-              data={item}
-              onClick={(id) => console.log("go detail:", id)}
-            />
+          {MOCK_PROPERTY_POST.map((item) => (
+            <PropertyPreview key={item.propertyId} data={item} />
           ))}
         </div>
       </div>

@@ -1,7 +1,6 @@
-import type { Post } from "@/types/post";
+import type { CommunityPost } from "@/types/communityPost";
 
-// 실제 API로 교체해서 쓰면 됨
-const MOCK: Post[] = [
+export const MOCK_COMMUNITY_POST:CommunityPost[] = [
   {
     id: "p1",
     purchaseType: true,
@@ -60,13 +59,3 @@ const MOCK: Post[] = [
     ],
   },
 ];
-
-export async function fetchPosts(): Promise<Post[]> {
-  // return (await fetch("/api/posts")).json();
-  return Promise.resolve(MOCK);
-}
-
-export async function fetchPostById(id: string): Promise<Post | undefined> {
-  // return (await fetch(`/api/posts/${id}`)).json();
-  return Promise.resolve(MOCK.find(p => p.id === id));
-}
