@@ -97,12 +97,6 @@
   font-weight: bold;
 }
 
-.cancelBtn {
-  border: 1px solid #8a79d4;
-  background: #ffffff;
-  font-size: clamp(1rem, 1.8vw, 1.3rem);
-}
-
 .submitBtn {
   background: #8a79d4;
   color: white;

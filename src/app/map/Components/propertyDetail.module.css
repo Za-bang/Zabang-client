@@ -1,0 +1,215 @@
+/* ReviewSection.tsx */
+.reviewTitle {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+}
+
+.commentInput {
+  position: fixed;
+  bottom: clamp(3rem, 6vw, 4.2rem);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 65rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.sendBtn {
+  padding: 0.5rem 1rem;
+  background: #8E78EA;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-weight: bold;
+}
+
+/* PropertyPostDetail.tsx */
+.imageGallery {
+  position: relative;
+}
+
+.imageRow {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.imageWrapper {
+  position: relative;
+  flex: 1;
+}
+
+.mainImage {
+  width: 100%;
+  max-width: 20rem;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.moreBtn {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.previewImage {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.prevBtn,
+.nextBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+.prevBtn {
+  left: 2%;
+}
+
+.nextBtn {
+  right: 2%;
+}
+
+
+.infoSection {
+  padding: 0.5rem;
+}
+
+.title {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.address {
+  color: #666;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  margin-bottom: 0.5rem;
+}
+
+.detailList {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.detailList li {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  margin-bottom: 0.2rem;
+}
+
+.content {
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+
+.options {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  color: #444;
+}
+
+.reviewSection {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-top: 1px solid #ddd;
+}
+
+.reviewTitle {
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+}
+
+/* ReviewItem.tsx */
+.reviewItem {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.profileCircle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ccc;
+}
+
+.reviewContent {
+  flex: 1;
+}
+
+.reviewAuthor {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-weight: bold;
+  margin-right: 0.4rem;
+}
+
+.reviewMeta {
+  font-size: clamp(0.75rem, 1.5vw, 0.95rem);
+  color: #888;
+}
+
+.reviewText {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  margin-top: 0.2rem;
+}

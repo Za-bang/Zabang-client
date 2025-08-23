@@ -1,10 +1,10 @@
 "use client";
-import styles from "./page.module.css";
+import styles from "./styles.module.css";
 import Link from "next/link";
-import type { Post } from "@/types/post";
+import type { CommunityPost } from "@/types/communityPost";
 import ChatBubbleOutlineRoundedIcon from "@mui/icons-material/ChatBubbleOutlineRounded";
 
-type Props = { post: Post };
+type Props = { post: CommunityPost };
 
 export default function PostCardList({ post }: Props) {
   const commentCount = post.comments?.length ?? 0;
@@ -26,7 +26,7 @@ export default function PostCardList({ post }: Props) {
 
   return (
     <div>
-      <Link href={`/posts/${post.id}`} className={styles.card}>
+      <Link href={`/community/${post.id}`} className={styles.card}>
         <div className={styles.thumbWrap}>
           <img
             className={styles.thumb}

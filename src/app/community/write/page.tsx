@@ -1,6 +1,6 @@
 "use client";
 import styles from "./page.module.css";
-import Header from "@/Components/Header";
+import HeaderBack from "@/Components/HeaderBack";
 import BottomNav from "@/Components/BottomNav";
 import { useState } from "react";
 import UploadImageButton from "./UploadImgBtn";
@@ -51,7 +51,7 @@ export default function WritePost() {
 
   return (
     <div className={styles.page}>
-      <Header />
+      <HeaderBack />
       <div className={styles.title}></div>
       <div className={styles.main}>
         {/* 제목 */}
@@ -93,11 +93,8 @@ export default function WritePost() {
           </div>
         </div>
         <div className={styles.btnGroup}>
-          <button className={styles.cancelBtn} onClick={() => history.back()}>
-            취소
-          </button>
           <button className={styles.submitBtn} onClick={handleSubmit}>
-            등록
+            등록하기
           </button>
         </div>
       </div>
