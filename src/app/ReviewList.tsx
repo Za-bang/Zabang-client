@@ -1,29 +1,26 @@
-"use client";
-
+import Link from "next/link";
 import styles from "./page.module.css";
-import ChatBubbleOutlineRoundedIcon from "@mui/icons-material/ChatBubbleOutlineRounded";
-import type { Review } from "@/types/review";
+import type { propertyReview } from "@/types/propertyReview";
 
 type Props = {
-  items: Review[];
+  items: propertyReview[];
 };
 
-export default function ReviewList({ items }:Props) {
+export default function ReviewList({ items }: Props) {
   return (
     <div className={styles.reviewCard}>
-      {items.map((r) => (
-        <article className={styles.reviewItem} key={r.id}>
+      {items.slice(0, 4).map((r) => (
+        <Link
+          href={`/map/${r.propertyId}`}
+          key={r.id}
+          className={styles.reviewItem}
+        >
           <div className={styles.reviewPlace}>{r.place}</div>
           <div className={styles.reviewText}>{r.text}</div>
-
           <div className={styles.metaRow}>
             <span className={styles.date}>{r.date}</span>
-              <span className={styles.comment} title="댓글">
-                <ChatBubbleOutlineRoundedIcon  fontSize="inherit" className={styles.chatIcon}/>
-                {r.comments}
-              </span>
           </div>
-        </article>
+        </Link>
       ))}
     </div>
   );
