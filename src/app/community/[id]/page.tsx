@@ -1,22 +1,34 @@
-import CommunityPostDetail from "../Components/CommunutyPostDetail";
-import { MOCK_COMMUNITY_POST } from "@/data/demoPosts";
+import CommunityPostDetail from "../Components/CommunityPostDetail";
+import { MOCK_POST_LIST, MOCK_POST_DETAIL } from "@/data/demoCommunityPosts";
+import styles from "./page.module.css";
+import HeaderBack from "@/Components/HeaderBack";
+import BottomNav from "@/Components/BottomNav";
+import CommentSection from "../Components/CommentSection";
 
 export function generateStaticParams() {
-  return MOCK_COMMUNITY_POST.map((p) => ({ id: p.id }));
+  return MOCK_POST_LIST.map((p) => ({ id: String(p.id) }));
 }
 
 interface PageProps {
   params: Promise<{ id: string }>;
-  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 export default async function CommunityPostPage({ params }: PageProps) {
   const { id } = await params;
 
-  const post = MOCK_COMMUNITY_POST.find((p) => p.id === id);
+  const post = MOCK_POST_DETAIL.find((p) => p.id === Number(id)); 
   if (!post) {
     return <div>게시글을 찾을 수 없습니다.</div>;
   }
 
-  return <CommunityPostDetail post={post} />;
+  return (
+    <div className={styles.page}>
+      <HeaderBack />
+      <div className={styles.main}>
+        <CommunityPostDetail post={post} />
+        <CommentSection postId={post.id} commentCount={post.commentCount} viewCount={post.viewCount} />
+      </div>
+      <BottomNav active="map" />
+    </div>
+  );
 }
