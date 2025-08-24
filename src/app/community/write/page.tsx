@@ -10,8 +10,11 @@ import type { PostCreateRequest } from "@/types/community";
 export default function WritePost() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [areaTag, setAreaTag] = useState<"1구역" | "2구역" | "3구역" | "4구역">("1구역");
+  const [areaTag, setAreaTag] = useState<"1구역" | "2구역" | "3구역" | "4구역">(
+    "1구역"
+  );
   const [category, setCategory] = useState<"FREE" | "GROUP_BUY">("FREE");
+  const [status, setStatus] = useState<"OPEN" | "CLOSED">("OPEN");
   const [imageUrls, setImageUrls] = useState<string[]>([]);
 
   const handleSubmit = async () => {
@@ -27,6 +30,7 @@ export default function WritePost() {
       areaTag,
       category,
       imageUrls,
+      status,
     };
 
     try {
@@ -51,7 +55,6 @@ export default function WritePost() {
     <div className={styles.page}>
       <HeaderBack />
       <div className={styles.main}>
-        {/* 제목 */}
         <input
           type="text"
           placeholder="제목"
@@ -60,7 +63,6 @@ export default function WritePost() {
           className={styles.textTitle}
         />
 
-        {/* 내용 */}
         <textarea
           className={styles.textArea}
           placeholder="내용을 입력하세요."
@@ -68,12 +70,10 @@ export default function WritePost() {
           onChange={(e) => setContent(e.target.value)}
         />
 
-        {/* 이미지 업로드 */}
         <div className={styles.uploadImg}>
           <UploadImageButton onUpload={(urls) => setImageUrls(urls)} />
         </div>
 
-        {/* 카테고리 선택 */}
         <div className={styles.section}>
           <label>
             <input
@@ -97,16 +97,46 @@ export default function WritePost() {
           </label>
         </div>
 
-        {/* 구역 선택 */}
+{category === "GROUP_BUY" && (
+  <div className={styles.statusRow}>
+    <span className={styles.tagTitle}>공동구매 상태</span>
+    <div className={styles.radioGroup}>
+      <label>
+        <input
+          type="radio"
+          name="status"
+          value="OPEN"
+          checked={status === "OPEN"}
+          onChange={() => setStatus("OPEN")}
+        />
+        진행중
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="status"
+          value="CLOSED"
+          checked={status === "CLOSED"}
+          onChange={() => setStatus("CLOSED")}
+        />
+        마감
+      </label>
+    </div>
+  </div>
+)}
+
+
         <div>
           <div className={styles.tagTitle}>구역 선택</div>
           <div>
             {FILTERS.map((t, idx) =>
-              idx === 0 ? null : (
+              idx < 2 ? null : (
                 <button
                   key={t}
                   onClick={() => setAreaTag(t as any)}
-                  className={`${styles.tag} ${areaTag === t ? styles.tagActive : ""}`}
+                  className={`${styles.tag} ${
+                    areaTag === t ? styles.tagActive : ""
+                  }`}
                 >
                   {t}
                 </button>
@@ -115,7 +145,6 @@ export default function WritePost() {
           </div>
         </div>
 
-        {/* 등록 버튼 */}
         <div className={styles.btnGroup}>
           <button className={styles.submitBtn} onClick={handleSubmit}>
             등록하기

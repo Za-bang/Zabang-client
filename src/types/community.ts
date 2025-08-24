@@ -23,6 +23,7 @@ export interface PageResponse<T> {
     content: string;
     areaTag: "1구역" | "2구역" | "3구역" | "4구역";
     category: "FREE" | "GROUP_BUY";
+    status: "OPEN" | "CLOSED";
     imageUrls?: string[]; // 업로드가 아닌 URL 배열
   }
 
