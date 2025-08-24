@@ -220,6 +220,18 @@
   margin-top: 0.2rem;
 }
 
+.reviewRating {
+  margin-left: 6px;      
+  color: #ffcf57;         
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);    
+}
+
+.reviewAuthor {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
 .aiSummaryTitle {
   font-weight: bold;
   color: #4c4b4f;

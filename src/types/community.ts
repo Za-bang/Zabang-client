@@ -62,7 +62,7 @@ export interface PostDetail {
   viewCount: number;
   commentCount: number;
   images: string[]; // 실제 이미지
-  imageUrls: string[] | null; // null로 내려올 수도 있음
+  imageUrls?: string[]; // null로 내려올 수도 있음
 }
 
 // 글 수정 Request
