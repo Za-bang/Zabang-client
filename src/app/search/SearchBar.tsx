@@ -1,25 +1,24 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import styles from "./searchBar.module.css";
 
-export default function SearchBar() {
-  const router = useRouter();
-  const [keyword, setKeyword] = useState("");
+export default function SearchBar({ onSearch }: { onSearch: (v: string) => void }) {
+  const [query, setQuery] = useState("");
 
-  const goSearch = () => {
-    const q = keyword.trim() ? `?q=${encodeURIComponent(keyword.trim())}` : "";
-    router.push(`/search/results${q}`);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(e.target.value);
+    onSearch(e.target.value); 
   };
 
   return (
+    <div className={styles.searchBar}>
       <input
-        className={styles.searchInput}
-        placeholder="검색어를 입력하거나 조건을 선택하세요."
-        value={keyword}
-        onChange={(e) => setKeyword(e.target.value)}
-        onKeyDown={(e) => e.key === "Enter" && goSearch()} // 엔터로 검색
+        value={query}
+        onChange={handleChange}
+        placeholder="검색어를 입력하세요"
+        className={styles.input}
       />
+    </div>
   );
 }

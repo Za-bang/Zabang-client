@@ -3,17 +3,19 @@
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
-import { TAG_GROUPS } from "@/types/constants";
 import ArrowBackIosNewRoundedIcon from "@mui/icons-material/ArrowBackIosNewRounded";
 import BottomNav from "@/Components/BottomNav";
 import SearchBar from "./SearchBar";
+import { getCombinedTagGroups } from "@/types/getTagGroups";
 
 export default function SearchFilterPage() {
   const router = useRouter();
-  const [keyword] = useState("");
-  const [selected, setSelected] = useState([]); // 문자열 배열
+  const [keyword, setKeyword] = useState("");
+  const [selected, setSelected] = useState<string[]>([]);
 
-  const toggle = (tag) =>
+  const TAG_GROUPS = useMemo(() => getCombinedTagGroups(), []);
+
+  const toggle = (tag: string) =>
     setSelected((prev) =>
       prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
     );
@@ -23,11 +25,6 @@ export default function SearchFilterPage() {
     const q = keyword.trim() ? `&q=${encodeURIComponent(keyword.trim())}` : "";
     router.push(`/search/results?tags=${tags}${q}`);
   };
-
-  const hasSelected = useMemo(
-    () => selected.length > 0 || keyword.trim().length > 0,
-    [selected, keyword]
-  );
 
   return (
     <div className={styles.page}>
@@ -42,45 +39,37 @@ export default function SearchFilterPage() {
           </button>
         </div>
         <div className={styles.center}>
-          <SearchBar />
+          <SearchBar onSearch={setKeyword} />
         </div>
         <div className={styles.right}></div>
       </div>
 
-      {/* 메인 */}
       <div className={styles.main}>
-        <div>
-          {TAG_GROUPS.map((group) => (
-            <section key={group.key} className={styles.group}>
-              <div className={styles.groupTitle}>{group.label}</div>
-              <div className={styles.chips}>
-                {group.tags.map((t) => (
-                  <button
-                    key={t}
-                    onClick={() => toggle(t)}
-                    className={`${styles.chip} ${
-                      selected.includes(t) ? styles.chipOn : ""
-                    }`}
-                  >
-                    {t}
-                  </button>
-                ))}
-              </div>
-            </section>
-          ))}
-        </div>
-
+        {TAG_GROUPS.map((group) => (
+          <section key={group.key} className={styles.group}>
+            <div className={styles.groupTitle}>{group.label}</div>
+            <div className={styles.chips}>
+              {group.tags.map((t) => (
+                <button
+                  key={t}
+                  onClick={() => toggle(t)}
+                  className={`${styles.chip} ${
+                    selected.includes(t) ? styles.chipOn : ""
+                  }`}
+                >
+                  {t}
+                </button>
+              ))}
+            </div>
+          </section>
+        ))}
         <div className={styles.bottomBar}>
-          <button
-            className={styles.primaryBtn}
-            onClick={goSearch}
-            disabled={!hasSelected}
-          >
+          <button className={styles.searchBtn} onClick={goSearch}>
             검색하기
           </button>
         </div>
       </div>
-      <BottomNav active="" />
+      <BottomNav active="none" />
     </div>
   );
 }
