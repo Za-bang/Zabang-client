@@ -7,22 +7,23 @@ import ChatBubbleOutlineRoundedIcon from "@mui/icons-material/ChatBubbleOutlineR
 type Props = { post: PostListItem };
 
 export default function PostCardList({ post }: Props) {
-  const commentCount = post.commentCount;
-
   const date = new Date(post.createdAt);
   const formattedDate = `${date.getFullYear()}. ${
     date.getMonth() + 1
   }. ${date.getDate()}`;
 
-  // //공동구매 게시글 상태
-  // const renderStatus=(status: boolean)=> {
-  //   if (status==post.purchaseType) {
-  //     if (status)
-  //       return <span className={styles.badgeBlue}>진행중</span>;
-  //     }
-  //     else
-  //       return <span className={styles.badgeGray}>마감</span>;
-  // }
+// 공동구매 게시글 상태
+const renderStatus = (post: PostListItem) => {
+  if (post.category === "GROUP_BUY") {
+    if (post.status === "OPEN") {
+      return <span className={styles.badgeBlue}>진행중</span>;
+    } else {
+      return <span className={styles.badgeGray}>마감</span>;
+    }
+  }
+  return null; // GROUP_BUY가 아닌 경우 상태 뱃지 없음
+};
+
 
   return (
     <div>
@@ -37,18 +38,17 @@ export default function PostCardList({ post }: Props) {
 
         <div className={styles.body}>
           <div className={styles.badges}>
-            {/* {post.purchaseType && (
+            {post.category === "GROUP_BUY" && (
               <span className={styles.badgePurple}>공구</span>
-            )} */}
+            )}
             <span className={styles.title}>
               {`${post.areaTag} ${post.title.replace(`${post.areaTag} `, "")}`}
             </span>
-            {/* <span className={styles.right}>
-              {renderStatus(post.purchaseStatus)}
-            </span> */}
+            <span className={styles.right}>
+              {renderStatus(post)}
+            </span>
           </div>
 
-          {/* <p className={styles.contents}>{post.contents}</p> */}
 
           <div className={styles.metaRow}>
             <span className={styles.metaDate}>{formattedDate}</span>
@@ -56,7 +56,7 @@ export default function PostCardList({ post }: Props) {
             <span className={styles.metaRegion}>{post.areaTag}</span>
             <span className={styles.right}>
               <ChatBubbleOutlineRoundedIcon  fontSize="inherit" className={styles.chatIcon}/>
-              <span>{commentCount}</span>
+              <span>{post.commentCount}</span>
             </span>
           </div>
         </div>
