@@ -1,6 +1,7 @@
 /* ReviewSection.tsx */
 .reviewTitle {
   font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  color:#4c4b4f;
 }
 
 .commentInput {
@@ -35,6 +36,10 @@
   cursor: pointer;
   font-size: clamp(0.9rem, 1.5vw, 1.1rem);
   font-weight: bold;
+}
+
+.reviews {
+    padding-bottom: clamp(5rem, 10vw, 7rem);
 }
 
 /* PropertyPostDetail.tsx */
@@ -163,7 +168,8 @@
 }
 
 .options {
-  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  font-weight: bold;
   color: #444;
 }
 
@@ -184,7 +190,7 @@
   display: flex;
   gap: 0.6rem;
   padding: 0.6rem 0;
-  border-bottom: 1px solid #e7e7e7;
+  border-bottom: 1px solid #efefef;
 }
 
 .profileCircle {
@@ -212,4 +218,20 @@
 .reviewText {
   font-size: clamp(0.9rem, 1.5vw, 1.1rem);
   margin-top: 0.2rem;
+}
+
+.aiSummaryTitle {
+  font-weight: bold;
+  color: #4c4b4f;
+}
+
+.aiSummary {
+  margin: 0.5rem 0 1rem 0;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  background: #f9fafb;
+  font-size: 0.9rem;
+  color: #374151;
+  line-height: 1.4;
+  white-space: pre-line;
 }

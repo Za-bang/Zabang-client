@@ -1,9 +1,9 @@
 import Link from "next/link";
 import styles from "./page.module.css";
-import type { propertyReview } from "@/types/propertyReview";
+import type { ReviewResponse } from "@/types/propertyPost";
 
 type Props = {
-  items: propertyReview[];
+  items: ReviewResponse[];
 };
 
 export default function ReviewList({ items }: Props) {
@@ -12,11 +12,11 @@ export default function ReviewList({ items }: Props) {
       {items.slice(0, 4).map((r) => (
         <Link
           href={`/map/${r.propertyId}`}
-          key={r.id}
+          key={r.propertyId}
           className={styles.reviewItem}
         >
-          <div className={styles.reviewPlace}>{r.place}</div>
-          <div className={styles.reviewText}>{r.text}</div>
+          <div className={styles.reviewPlace}>{r.propertyName}</div>
+          <div className={styles.reviewText}>{r.texts}</div>
           <div className={styles.metaRow}>
             <span className={styles.date}>{r.date}</span>
           </div>

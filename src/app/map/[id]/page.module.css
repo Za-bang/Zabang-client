@@ -12,3 +12,8 @@
   margin: 0 auto;
   padding-bottom: clamp(5rem, 10vw, 7rem);
 }
+
+.review {
+  padding-top: 1rem;
+  margin-top: 1rem;
+}

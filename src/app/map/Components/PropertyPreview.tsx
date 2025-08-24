@@ -1,42 +1,56 @@
 "use client";
 import React from "react";
 import styles from "./styles.module.css";
-import type { PropertyPost } from "@/types/propertyPost";
+import type { RoomDetail, ReviewAIResult } from "@/types/propertyPost";
 import Link from "next/link";
 
-export default function PropertyPreviewCard({ data }: { data: PropertyPost }) {
-  const { propertyId, name, thumbnails, deposit, yearlyRent, price, description, reviewCount, keywords } = data;
+interface PropertyPreviewProps {
+  data: RoomDetail;
+  reviewAI?: ReviewAIResult;
+}
 
-  const priceLine = [
-    deposit && `보증금 ${deposit.formatted}`,
-    yearlyRent && `연 ${yearlyRent.formatted}`,
-    !deposit && !yearlyRent && price?.formatted,
-  ].filter(Boolean).join(" / ");
+export default function PropertyPreview({
+  data,
+  reviewAI,
+}: PropertyPreviewProps) {
+  const { propertyId, name, imagePath, deposit, rentPrice, area } = data;
 
   return (
-    <Link href={`/map/${propertyId}`} className={styles.card} aria-label={`${name} 미리보기 카드`}>
+    <Link
+      href={`/map/${propertyId}`}
+      className={styles.card}
+      aria-label={`${name} 미리보기 카드`}
+    >
       <div className={styles.thumbWrap}>
-        <img src={thumbnails[0]} alt={`${name} 썸네일`} className={styles.thumbnail} loading="lazy" />
+        <img
+          src={imagePath[0]}
+          alt={`${name} 썸네일`}
+          className={styles.thumbnail}
+          loading="lazy"
+        />
       </div>
 
       <div className={styles.content}>
         <header className={styles.header}>
-          <h3 className={styles.title}>{name}</h3>
-          <span className={styles.review}>리뷰 {reviewCount}</span>
+          <h3 className={styles.title}>
+            {name}
+            <span className={styles.area}>{area}구역</span>
+          </h3>
         </header>
 
-        {priceLine && <div className={styles.price}>{priceLine}</div>}
-        <p className={styles.description}>{description}</p>
+        <div className={styles.price}>
+          보증금 {deposit} | {rentPrice}
+        </div>
 
-        {keywords.length > 0 && (
+        {reviewAI?.keywords?.length ? (
           <div className={styles.chips}>
-            {keywords.slice(0, 3).map((keyword) => (
+            {reviewAI.keywords.slice(0, 3).map((keyword: string) => (
               <span key={keyword} className={styles.chip}>
                 {keyword}
               </span>
             ))}
           </div>
-        )}
+        ) : null}
       </div>
     </Link>
   );

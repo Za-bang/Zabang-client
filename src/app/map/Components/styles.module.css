@@ -1,25 +1,25 @@
 .card {
   display: grid;
-  grid-template-columns: 100px 1fr;    
-  gap: 0.6rem;                        
-  border: 1.2px solid #d0d3d9;         
-  border-radius: 12px;                
+  grid-template-columns: clamp(5rem, 22vw, 7rem) 1fr; 
+  gap: clamp(0.4rem, 1vw, 0.8rem);
+  border: 0.1rem solid #d0d3d9;         
+  border-radius: 0.75rem;                
   background: #fff;
-  padding: 0.6rem;                      
+  padding: clamp(0.5rem, 1vw, 0.8rem);  
   cursor: pointer;
   transition: box-shadow 0.15s ease, transform 0.06s ease;
-  margin: 0.5rem 0;
+  margin: clamp(0.4rem, 1vw, 0.8rem) 0;
 }
 
 .card:focus,
 .card:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);  
+  box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.05);  
 }
 
 .thumbWrap {
-  width: 100px;   
-  height: 100px;
-  border-radius: 10px;
+  width: clamp(5rem, 22vw, 7rem);
+  height: clamp(5rem, 22vw, 7rem);
+  border-radius: 0.6rem;
   overflow: hidden;
   background: #f3f4f6;
 }
@@ -32,68 +32,66 @@
 }
 
 .content {
-  display: grid;
-  grid-auto-rows: min-content;
-  row-gap: 0.3rem;   
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* 위쪽 내용과 chips 아래로 분리 */
   min-width: 0;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
-  gap: 0.4rem;
+  gap: clamp(0.2rem, 0.5vw, 0.5rem);
   align-items: baseline;
 }
 
 .title {
-  font-weight: 700;
-  font-size: clamp(0.95rem, 1.5vw, 1.15rem); 
-  line-height: 1.2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  font-weight: bold;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+}
+
+.area {
+  margin-left: 0.5rem;
+  font-size: clamp(0.8rem, 2vw, 0.95rem);
+  color: #666;
 }
 
 .review {
   white-space: nowrap;
   color: #6b7280;
-  font-size: 0.8rem; 
+  font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+
 }
 
 .price {
   font-weight: 700;
   color: #111827;
-  font-size: 0.85rem;  
-}
-
-.description {
-  display: flex;
-  gap: 0.6rem;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  color: #374151;
-  font-size: 0.8rem;   
+  font-size: clamp(0.8rem, 2vw, 0.95rem);
 }
 
 .chips {
   display: flex;
-  gap: 0.35rem;
+  gap: clamp(0.25rem, 0.5vw, 0.4rem);
   flex-wrap: wrap;
+  margin-top: auto; 
 }
 
 .chip {
-  border: 1px solid #d8dbe1;
+  border: 1px solid #BC76BA;
   border-radius: 999px;
-  padding: 2px 6px;     
-  font-size: 0.7rem;     
+  padding: 0.15rem 0.4rem;     
+  font-size: clamp(0.65rem, 1.5vw, 0.8rem);
   color: #374151;
-  background: #fafafa;
+  background: #fff;
+  line-height: 1.4;
 }
 
 .kakaoM {
   width: 100%;
-  height: 45vh;           
-  border-radius: 8px;   
+  height: clamp(12rem, 45vh, 24rem);      
+  border-radius: 0.5rem;   
   margin-bottom: clamp(0.8rem, 1.5vw, 1.6rem); 
 }
+
+
+
