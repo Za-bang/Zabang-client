@@ -53,5 +53,5 @@ export interface ReviewResponse {
 export interface ReviewAIResult {
   propertyId: string;
   keywords: string[];
-  summary: string;
+  // summary: string;
 }

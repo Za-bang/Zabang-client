@@ -1,9 +1,9 @@
 .search {
   display: flex;
   align-items: center;
-  justify-content: center;   /* ✅ 가로 가운데 정렬 */
+  justify-content: center;  
   width: 100%;
-  margin: 1rem 0;            /* 위아래 여백 추가하면 더 깔끔 */
+  margin: 1rem 0;          
 }
 
 .searchBar {
@@ -11,7 +11,7 @@
   align-items: center;
   gap: 0.5rem;
   width: 100%;
-  max-width: 50rem;          /* ✅ 가운데 정렬 + 최대 폭 제한 */
+  max-width: 50rem;     
 }
 
 .input {
@@ -31,7 +31,7 @@
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 10px;
-  background-color: #6200ffcd; /* 보라색 */
+  background-color: #6200ffcd; 
   color: white;
   font-weight: 600;
   cursor: pointer;

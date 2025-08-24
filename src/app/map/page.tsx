@@ -7,7 +7,7 @@ import dynamic from "next/dynamic";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import { IconButton } from "@mui/material";
 import { useRouter } from "next/navigation";
-import SearchBar from "@/app/search/SearchBar";
+
 import {
   MOCK_PROPERTY_POST,
   MOCK_PROPERTY_AI,
@@ -37,8 +37,6 @@ export default function MapPage() {
           <IconButton onClick={handlGoToSearchPage}>
             <FilterAltIcon fontSize="large" />
           </IconButton>
-
-            <SearchBar onSearch={(value) => setSearchTerm(value)} />
         </div>
 
         <div className={styles.propertyPrev}>

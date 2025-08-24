@@ -97,13 +97,13 @@
   position: relative;
   margin: 2rem auto;
   background: #fff;
-  padding: 0;
+  padding-top: 1rem;
   display: flex;
   justify-content: center;
   width: 100%;
 }
 
-.primaryBtn {
+.searchBtn {
   width: 100%;
   max-width: 40rem;
   height: clamp(2.5rem, 4vw, 3rem);
@@ -115,7 +115,7 @@
   font-size: clamp(1rem, 1.8vw, 1.3rem);
 }
 
-.primaryBtn:disabled {
+.searchBtn:disabled {
   background: #fff;
   color: #BC76BA;
   border: 1px solid #BC76BA;
