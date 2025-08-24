@@ -65,7 +65,7 @@ export default function SearchResultsPageInner() {
               <span>조건에 맞는 매물 결과입니다.</span>
             </>
           ) : (
-            <span>모든 매물 결과입니다.</span>
+            <span></span>
           )}
         </div>
 
