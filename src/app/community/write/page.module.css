@@ -51,8 +51,8 @@
 
 .section {
   display: flex;
-  gap: 16px; 
-  margin: 8px 0; 
+  gap: 1rem; 
+  margin: 0.5rem 0; 
   font-size: clamp(0.9rem, 1.5vw, 1.1rem);
 }
 
@@ -91,6 +91,33 @@
   gap: 0.5rem;
   margin-top: clamp(2rem, 6vw, 7rem);
   margin-bottom: 2rem;
+}
+
+.statusRow {
+  display: flex;
+  align-items: center;   
+  gap: 1rem;             
+  margin: 0.5rem 0;
+}
+
+.statusRow .tagTitle {
+  padding-top: 0;        
+  margin: 0;
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+  font-weight: bold;
+  color: #4b5563;
+}
+
+.radioGroup {
+  display: flex;
+  align-items: center;  
+  gap: 1.5rem;           
+}
+
+.radioGroup label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;              
 }
 
 .submitBtn,
