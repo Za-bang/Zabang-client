@@ -1,6 +1,6 @@
-import PropertyPostDetail from "../Components/PropertyPostDetail";
+import PropertyPostDetail from "./Components/PropertyPostDetail";
 import { MOCK_ROOM_DETAILS } from "@/data/demoProperties";
-import ReviewSection from "../Components/ReviewSection";
+import ReviewSection from "./Components/ReviewSection";
 import HeaderBack from "@/Components/HeaderBack";
 import BottomNav from "@/Components/BottomNav";
 import styles from "./page.module.css";

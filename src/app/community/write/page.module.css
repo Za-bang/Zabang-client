@@ -49,6 +49,13 @@
   scrollbar-width: none;
 }
 
+.section {
+  display: flex;
+  gap: 16px; 
+  margin: 8px 0; 
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+}
+
 .tagTitle {
   padding-top: 1rem;
   font-size: clamp(0.85rem, 1.2vw, 1.05rem);
@@ -69,7 +76,7 @@
   font-size: clamp(0.85rem, 1.2vw, 1.05rem);
   color: #a1a0a0;
   font-weight: bold;
-
+  line-height: 1.4;
 }
 
 .tagActive {

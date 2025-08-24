@@ -1,9 +1,9 @@
-import CommunityPostDetail from "../Components/CommunityPostDetail";
+import CommunityPostDetail from "./Components/CommunityPostDetail";
 import { MOCK_POST_LIST, MOCK_POST_DETAIL } from "@/data/demoCommunityPosts";
 import styles from "./page.module.css";
 import HeaderBack from "@/Components/HeaderBack";
 import BottomNav from "@/Components/BottomNav";
-import CommentSection from "../Components/CommentSection";
+import CommentSection from "./Components/CommentSection";
 
 export function generateStaticParams() {
   return MOCK_POST_LIST.map((p) => ({ id: String(p.id) }));
@@ -26,7 +26,7 @@ export default async function CommunityPostPage({ params }: PageProps) {
       <HeaderBack />
       <div className={styles.main}>
         <CommunityPostDetail post={post} />
-        <CommentSection postId={post.id} commentCount={post.commentCount} viewCount={post.viewCount} />
+        <CommentSection postId={post.id}/>
       </div>
       <BottomNav active="map" />
     </div>

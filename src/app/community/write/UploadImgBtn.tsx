@@ -3,14 +3,24 @@ import { useRef, useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
 
-export default function UploadImageButton() {
-  const [image, setImages] = useState<File[]>([]);
+type UploadImageButtonProps = {
+  onUpload?: (urls: string[]) => void;
+};
+
+export default function UploadImageButton({ onUpload }: UploadImageButtonProps) {
+  const [images, setImages] = useState<File[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const newFiles = Array.from(e.target.files);
       setImages((prev) => [...prev, ...newFiles]);
+
+      const urls = newFiles.map((file) => URL.createObjectURL(file));
+
+      if (onUpload) {
+        onUpload(urls);
+      }
     }
   };
 
@@ -24,7 +34,6 @@ export default function UploadImageButton() {
         padding: "0.5rem 0",
       }}
     >
-      {/* 숨겨진 파일 input */}
       <input
         type="file"
         accept="image/*"
@@ -33,7 +42,6 @@ export default function UploadImageButton() {
         style={{ display: "none" }}
         onChange={handleFileChange}
       />
-      {/* 카메라 아이콘 버튼 */}
       <IconButton
         onClick={() => fileInputRef.current?.click()}
         aria-label="upload picture"
@@ -49,7 +57,7 @@ export default function UploadImageButton() {
       </IconButton>
 
       {/* 이미지 미리보기 */}
-      {image.map((img, idx) => (
+      {images.map((img, idx) => (
         <img
           key={idx}
           src={URL.createObjectURL(img)}
