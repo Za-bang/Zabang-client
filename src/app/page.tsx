@@ -2,13 +2,13 @@
 
 import Header from "../Components/Header";
 import BottomNav from "../Components/BottomNav";
-import type { propertyReview } from "@/types/propertyReview";
+import type { ReviewResponse } from "@/types/propertyPost";
 import { MOCK_REVIEWS } from "@/data/demoReviews";
 import styles from "./page.module.css";
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import ReviewList from "./ReviewList";
-import { MOCK_PROPERTY_POST } from "@/data/demoProperties";
+import { MOCK_PROPERTY_POST, MOCK_PROPERTY_AI, MOCK_ROOM_DETAILS } from "@/data/demoProperties";
 import PropertyPreview from "./map/Components/PropertyPreview";
 
 const KMap = dynamic(
@@ -19,7 +19,7 @@ const KMap = dynamic(
 );
 
 export default function HomePage() {
-  const [reviews] = useState<propertyReview[]>(MOCK_REVIEWS);
+  const [reviews] = useState<ReviewResponse[]>(MOCK_REVIEWS);
 
   return (
     <div className={styles.page}>
@@ -39,9 +39,25 @@ export default function HomePage() {
             <KMap />
           </div>
           <div className={styles.propertyPrev}>
-          {MOCK_PROPERTY_POST.map((item) => (
-            <PropertyPreview key={item.propertyId} data={item} />
-          ))}
+          {MOCK_PROPERTY_POST.map((item) => {
+            const aiResult = MOCK_PROPERTY_AI.find(
+              (ai) => ai.propertyId === item.propertyId
+            );
+
+            const roomDetail = MOCK_ROOM_DETAILS.find(
+              (room) => room.propertyId === item.propertyId
+            );
+
+            if (!roomDetail) return null; 
+
+            return (
+              <PropertyPreview
+                key={item.propertyId}
+                data={roomDetail}
+                reviewAI={aiResult}
+              />
+            );
+          })}
         </div>
         </section>
       </main>
