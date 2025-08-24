@@ -53,6 +53,7 @@
 .area {
   margin-left: 0.5rem;
   font-size: clamp(0.8rem, 2vw, 0.95rem);
+  font-weight: lighter;
   color: #666;
 }
 
@@ -65,7 +66,7 @@
 
 .price {
   font-weight: 700;
-  color: #111827;
+  color: #515763;
   font-size: clamp(0.8rem, 2vw, 0.95rem);
 }
 
@@ -81,8 +82,9 @@
   border-radius: 999px;
   padding: 0.15rem 0.4rem;     
   font-size: clamp(0.65rem, 1.5vw, 0.8rem);
-  color: #374151;
-  background: #fff;
+  font-weight: bold;
+  color: #ffffff;
+  background: #BC76BA;
   line-height: 1.4;
 }
 

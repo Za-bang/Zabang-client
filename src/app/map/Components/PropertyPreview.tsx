@@ -32,10 +32,10 @@ export default function PropertyPreview({
 
       <div className={styles.content}>
         <header className={styles.header}>
-          <h3 className={styles.title}>
+          <div className={styles.title}>
             {name}
             <span className={styles.area}>{area}구역</span>
-          </h3>
+          </div>
         </header>
 
         <div className={styles.price}>
