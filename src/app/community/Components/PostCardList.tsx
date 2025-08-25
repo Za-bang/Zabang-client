@@ -27,7 +27,7 @@ const renderStatus = (post: PostListItem) => {
 
   return (
     <div>
-      <Link href={`/community/${post.id}`} className={styles.card}>
+      <Link href={`/community/post?postId=${post.id}`} className={styles.card}>
         <div className={styles.thumbWrap}>
           <img
             className={styles.thumb}
