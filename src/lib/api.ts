@@ -74,8 +74,10 @@ export async function getPostDetail(id: number): Promise<PostDetail> {
   return res.json();
 }
 
+
 // 매물 목록 불러오기
 import type { RoomDetail } from "@/types/propertyPost";
+
 export async function getRoomList(): Promise<RoomDetail[]> {
   const res = await fetch(`${BASE_URL}/rooms`, {
     method: "GET",
@@ -108,7 +110,7 @@ export async function getRoomDetail(
 // 방 이름으로 검색
 export async function searchRoomByName(name: string): Promise<RoomDetail[]> {
   const res = await fetch(`${BASE_URL}/rooms/search?name=${encodeURIComponent(name)}`, {
-    method: "POST", // ✅ 스펙에서 POST라고 했으니 POST 사용
+    method: "POST", 
     headers: { "Content-Type": "application/json" },
   });
 
