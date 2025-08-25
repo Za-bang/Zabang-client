@@ -13,8 +13,8 @@ import { FILTERS } from "@/types/constants";
 import type { PostListItem, PostDetail } from "@/types/community";
 
 import PostCardList from "./Components/PostCardList";
-import CommunityPostDetail from "./Components/CommunityPostDetail";
-import CommentSection from "./Components/CommentSection";
+import CommunityPostDetail from "./PostDetail/CommunityPostDetail";
+import CommentSection from "./PostDetail/CommentSection";
 
 import { getPostList, getPostDetail } from "@/lib/api";
 // import { MOCK_POST_LIST, MOCK_POST_DETAIL } from "@/data/demoCommunityPosts";
