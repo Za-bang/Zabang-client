@@ -1,22 +1,35 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import CommunityPostDetail from "./Components/CommunityPostDetail";
-import { MOCK_POST_LIST, MOCK_POST_DETAIL } from "@/data/demoCommunityPosts";
+// import { MOCK_POST_DETAIL } from "@/data/demoCommunityPosts";
 import styles from "./page.module.css";
 import HeaderBack from "@/Components/HeaderBack";
 import BottomNav from "@/Components/BottomNav";
 import CommentSection from "./Components/CommentSection";
-
-export function generateStaticParams() {
-  return MOCK_POST_LIST.map((p) => ({ id: String(p.id) }));
-}
+import { getPostDetail } from "@/lib/api";
+import type { PostDetail } from "@/types/community";
 
 interface PageProps {
-  params: Promise<{ id: string }>;
+  params: { id: string };
 }
 
-export default async function CommunityPostPage({ params }: PageProps) {
-  const { id } = await params;
+export default function CommunityPostPage({ params }: PageProps) {
+  const [post, setPost] = useState<PostDetail | null>(null);
 
-  const post = MOCK_POST_DETAIL.find((p) => p.id === Number(id)); 
+  useEffect(() => {
+    (async () => {
+      try {
+        const data = await getPostDetail(Number(params.id));
+        setPost(data);
+      } catch (err) {
+        console.error(err);
+        // const mock = MOCK_POST_DETAIL.find((p) => p.id === Number(params.id));
+        // if (mock) setPost(mock);
+      }
+    })();
+  }, [params.id]);
+
   if (!post) {
     return <div>게시글을 찾을 수 없습니다.</div>;
   }
@@ -26,7 +39,7 @@ export default async function CommunityPostPage({ params }: PageProps) {
       <HeaderBack />
       <div className={styles.main}>
         <CommunityPostDetail post={post} />
-        <CommentSection postId={post.id}/>
+        <CommentSection postId={post.id} />
       </div>
       <BottomNav active="map" />
     </div>

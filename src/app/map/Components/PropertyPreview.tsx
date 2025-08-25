@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import styles from "./styles.module.css";
 import type { RoomDetail, ReviewAIResult } from "@/types/propertyPost";
 import Link from "next/link";
@@ -55,3 +54,4 @@ export default function PropertyPreview({
     </Link>
   );
 }
+

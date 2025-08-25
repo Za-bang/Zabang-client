@@ -1,57 +1,77 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./communityPostDetail.module.css";
-import CommentItem from "./CommentItem";
-import { MOCK_COMMENTS } from "@/data/demoCommunityPosts";
-import type { CommentItem as CommentItemType } from "@/types/community";
+import CommentItemComp from "./CommentItemComp";
+// import { MOCK_COMMENTS } from "@/data/demoCommunityPosts";
+import type {
+  CommentItem,
+  CommentCreateRequest,
+  CommentCreateResponse,
+} from "@/types/community";
+import { createComment, getComments } from "@/lib/api";
 
-export default function CommentSection({ postId }: {postId:number}) {
-  const [comments, setComments] = useState<CommentItemType[]>(
-    MOCK_COMMENTS.filter((c) => c.postId === postId)
-  );
+export default function CommentSection({ postId }: { postId: number }) {
+  const [comments, setComments] = useState<CommentItem[]>([]);
 
   const [input, setInput] = useState("");
 
-  const handleAddComment = () => {
+  useEffect(() => {
+    (async () => {
+      try {
+        const data = await getComments(postId, 0, 20);
+        setComments(data.content); 
+      } catch (err) {
+        console.error(err);
+
+      }
+    })();
+  }, [postId]);
+
+  const handleAddComment = async () => {
     if (!input.trim()) return;
 
-    // 실제 API 요청 시 보낼 Request 타입
-    // const request: CommentCreateRequest = {
-    //   userId: currentUserId, // 로그인 사용자 ID
-    //   content: input,
-    // };
-
-    // 임시 댓글 데이터 (서버 응답 흉내)
-    const newComment: CommentItemType = {
-      id: Date.now(), // 임시 id
-      postId,
-      userId: 1, // TODO: 로그인 사용자 id 넣기
-      nickname: "이남경", // TODO: 로그인 사용자 닉네임 넣기
+    const request: CommentCreateRequest = {
+      userId: 1, // TODO: 로그인 사용자 ID
       content: input,
-      createdAt: new Date().toISOString(),
     };
 
-    // 프론트 state에 즉시 반영
-    setComments((prev) => [...prev, newComment]);
+    try {
+      const data: CommentCreateResponse = await createComment(postId, request);
 
-    // 입력창 초기화
-    setInput("");
+      const newComment: CommentItem = {
+        id: data.id,
+        postId,
+        userId: request.userId,
+        nickname: "우장산너구리", // TODO: 로그인 사용자 닉네임
+        content: input,
+        createdAt: new Date().toISOString(),
+      };
 
-    // TODO: 나중에 실제 API 요청 추가
-    // fetch(`/api/posts/${postId}/comments`, {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(request),
-    // })
-    //   .then(res => res.json() as Promise<CommentCreateResponse>)
-    //   .then(data => { ... });
+      setComments((prev) => [...prev, newComment]);
+      setInput("");
+    } catch (err) {
+      console.error(err);
+      alert("댓글 등록 실패");
+
+
+      // const newComment: CommentItem = {
+      //   id: Date.now(),
+      //   postId,
+      //   userId: request.userId,
+      //   nickname: "우장산너구리",
+      //   content: input,
+      //   createdAt: new Date().toISOString(),
+      // };
+      // setComments((prev) => [...prev, newComment]);
+      // setInput("");
+    }
   };
 
   return (
     <div className={styles.main}>
       {/* 댓글 목록 */}
       {comments.map((c) => (
-        <CommentItem key={c.id} {...c} />
+        <CommentItemComp key={c.id} {...c} />
       ))}
 
       {/* 댓글 입력 */}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import styles from "./page.module.css";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import Header from "@/Components/Header";
@@ -9,27 +9,35 @@ import { FILTERS } from "@/types/constants";
 import { useRouter } from "next/navigation";
 import type { PostListItem } from "@/types/community";
 import PostCardList from "./Components/PostCardList";
-import { MOCK_POST_LIST } from "@/data/demoCommunityPosts";
+// import { MOCK_POST_LIST } from "@/data/demoCommunityPosts";
+import { getPostList } from "@/lib/api";
 
 export default function CommunityPage() {
-  // 카테고리
   const [filter, setFilter] = useState("전체");
-
-  // 새로운 게시글 작성
   const router = useRouter();
   const handleGoToWrite = () => {
     router.push("./write");
   };
 
-  // 게시글 목록 나타내기 (더미 데이터 사용)
-  const [posts] = useState<PostListItem[]>(MOCK_POST_LIST);
+  const [posts, setPosts] = useState<PostListItem[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const data = await getPostList(0, 20);
+        setPosts(data.content); 
+      } catch (err) {
+        console.error(err);
+        // setPosts(MOCK_POST_LIST);
+      }
+    })();
+  }, []);
 
   const filteredPosts = useMemo(() => {
     if (filter === "전체") return posts;
-    if (filter === "공동구매") return posts.filter((p) => p.category=="GROUP_BUY");
+    if (filter === "공동구매") return posts.filter((p) => p.category == "GROUP_BUY");
     if (filter.endsWith("구역")) return posts.filter((p) => p.areaTag === filter);
-
-  return posts;
+    return posts;
   }, [posts, filter]);
 
   return (
@@ -49,6 +57,7 @@ export default function CommunityPage() {
             </button>
           ))}
         </div>
+
         {/* 게시글 목록 */}
         <div>
           {filteredPosts.length === 0 ? (
