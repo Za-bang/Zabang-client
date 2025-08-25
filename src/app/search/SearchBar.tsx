@@ -37,9 +37,6 @@ export default function SearchBar({
         className={styles.input}
         onKeyDown={(e) => e.key === "Enter" && handleSearch()} // 엔터로 검색 가능
       />
-      <button onClick={handleSearch} disabled={loading} className={styles.button}>
-        {loading ? "검색중..." : "검색"}
-      </button>
     </div>
   );
 }
