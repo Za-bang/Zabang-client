@@ -74,8 +74,8 @@ export async function getPostDetail(id: number): Promise<PostDetail> {
   return res.json();
 }
 
-import type { RoomDetail } from "@/types/propertyPost";
 // 매물 목록 불러오기
+import type { RoomDetail } from "@/types/propertyPost";
 export async function getRoomList(): Promise<RoomDetail[]> {
   const res = await fetch(`${BASE_URL}/rooms`, {
     method: "GET",
@@ -100,6 +100,20 @@ export async function getRoomDetail(
 
   if (!res.ok) {
     throw new Error("매물 상세 조회 실패");
+  }
+
+  return res.json();
+}
+
+// 방 이름으로 검색
+export async function searchRoomByName(name: string): Promise<RoomDetail[]> {
+  const res = await fetch(`${BASE_URL}/rooms/search?name=${encodeURIComponent(name)}`, {
+    method: "POST", // ✅ 스펙에서 POST라고 했으니 POST 사용
+    headers: { "Content-Type": "application/json" },
+  });
+
+  if (!res.ok) {
+    throw new Error("방 이름 검색 실패");
   }
 
   return res.json();
