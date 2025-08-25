@@ -21,7 +21,7 @@ export interface PageResponse<T> {
     userId: number;
     title: string;
     content: string;
-    areaTag: "1구역" | "2구역" | "3구역" | "4구역";
+    areaTag: "1구역" | "2구역" | "3구역" | "4구역" | "광고";
     category: "FREE" | "GROUP_BUY";
     status: "OPEN" | "CLOSED";
     imageUrls?: string[]; // 업로드가 아닌 URL 배열
@@ -37,7 +37,7 @@ export interface PageResponse<T> {
     id: number;
     title: string;
     category: "FREE" | "GROUP_BUY";
-    areaTag: "1구역" | "2구역" | "3구역" | "4구역";
+    areaTag: "1구역" | "2구역" | "3구역" | "4구역" | "광고";
     status: "OPEN" | "CLOSED";
     createdAt: string; // "2025.08.21"
     viewCount: number;
@@ -56,7 +56,7 @@ export interface PostDetail {
   title: string;
   content: string;
   category: "FREE" | "GROUP_BUY";
-  areaTag: "1구역" | "2구역" | "3구역" | "4구역";
+  areaTag: "1구역" | "2구역" | "3구역" | "4구역" | "광고";
   status: "OPEN" | "CLOSED";
   createdAt: string; // "2025.08.21"
   updatedDate: string | null;
@@ -70,7 +70,7 @@ export interface PostDetail {
 export interface PostUpdateRequest {
   title?: string;
   content?: string;
-  areaTag?: "1구역" | "2구역" | "3구역" | "4구역";
+  areaTag?: "1구역" | "2구역" | "3구역" | "4구역" | "광고";
   status?: "OPEN" | "CLOSED";
 }
 

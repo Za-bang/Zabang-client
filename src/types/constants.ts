@@ -5,13 +5,14 @@ export const FILTERS = [
   "2구역",
   "3구역",
   "4구역",
+  "광고"
 ];
 
 export const TAG_GROUPS = [
   {
     key: "region",
     label: "구역",
-    tags: ["1구역", "2구역", "3구역", "4구역"],
+    tags: ["1구역", "2구역", "3구역", "4구역","광고"],
   },
   {
     key: "building",
@@ -30,6 +31,7 @@ export const TAG_GROUPS = [
       "인테리어좋음",
       "옵션많음",
       "사진그대로",
+      "벌레없음"
     ],
   },
   {

@@ -6,17 +6,18 @@ import styles from "./page.module.css";
 import ArrowBackIosNewRoundedIcon from "@mui/icons-material/ArrowBackIosNewRounded";
 import BottomNav from "@/Components/BottomNav";
 import SearchBar from "./SearchBar";
-import PropertyPreview from "@/app/map/Components/PropertyPreview"; // ✅ 매물 카드
+import PropertyPreview from "@/app/map/Components/PropertyPreview"; 
 import type { RoomDetail } from "@/types/propertyPost";
-import { getCombinedTagGroups } from "@/types/getTagGroups";
+// import { getCombinedTagGroups } from "@/types/getTagGroups";
+import {TAG_GROUPS} from "@/types/constants"
 
 export default function SearchFilterPage() {
   const router = useRouter();
   const [keyword, setKeyword] = useState("");
   const [selected, setSelected] = useState<string[]>([]);
-  const [rooms, setRooms] = useState<RoomDetail[]>([]); // ✅ 검색 결과 상태
+  const [rooms, setRooms] = useState<RoomDetail[]>([]); 
 
-  const TAG_GROUPS = useMemo(() => getCombinedTagGroups(), []);
+  // const TAG_GROUPS = useMemo(() => getCombinedTagGroups(), []);
 
   const toggle = (tag: string) =>
     setSelected((prev) =>
@@ -26,7 +27,7 @@ export default function SearchFilterPage() {
   const goSearch = () => {
     const tags = encodeURIComponent(selected.join(","));
     const q = keyword.trim() ? `&q=${encodeURIComponent(keyword.trim())}` : "";
-    router.push(`/search/results?tags=${tags}${q}`);
+    router.push(`/search?name=${tags}${q}`);
   };
 
   return (
@@ -43,7 +44,7 @@ export default function SearchFilterPage() {
           </button>
         </div>
         <div className={styles.center}>
-          {/* ✅ 검색 결과를 setRooms로 받음 */}
+          {/* 검색 결과를 setRooms로 받음 */}
           <SearchBar onResults={setRooms} />
         </div>
         <div className={styles.right}></div>
@@ -51,7 +52,8 @@ export default function SearchFilterPage() {
 
       {/* 태그 필터 */}
       <div className={styles.main}>
-        {TAG_GROUPS.map((group) => (
+        {/* {TAG_GROUPS.map((group) => ( */}
+        {TAG_GROUPS.map((group) => ( 
           <section key={group.key} className={styles.group}>
             <div className={styles.groupTitle}>{group.label}</div>
             <div className={styles.chips}>
@@ -70,16 +72,7 @@ export default function SearchFilterPage() {
           </section>
         ))}
 
-        {/* ✅ 검색 결과 리스트 */}
-        <div className={styles.results}>
-          {rooms.length === 0 ? (
-            <p>검색 결과가 없습니다.</p>
-          ) : (
-            rooms.map((room) => (
-              <PropertyPreview key={room.propertyId} data={room} />
-            ))
-          )}
-        </div>
+        
 
         {/* 하단 검색 버튼 */}
         <div className={styles.bottomBar}>
