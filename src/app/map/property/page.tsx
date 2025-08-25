@@ -1,3 +1,4 @@
+"use client";
 import PropertyPostDetail from "./Components/PropertyPostDetail";
 import { MOCK_ROOM_DETAILS } from "@/data/demoProperties";
 import ReviewSection from "./Components/ReviewSection";
