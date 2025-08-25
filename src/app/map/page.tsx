@@ -7,11 +7,10 @@ import dynamic from "next/dynamic";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import { IconButton } from "@mui/material";
 import { useRouter } from "next/navigation";
-// import { MOCK_PROPERTY_POST, MOCK_PROPERTY_AI, MOCK_ROOM_DETAILS } from "@/data/demoProperties";
 import { useEffect, useState } from "react";
-import { getRoomList } from "@/lib/api";   
-
-import type { RoomDetail } from "@/types/propertyPost";
+import { getRoomList, getReviews } from "@/lib/api";   
+import type { RoomDetail, ReviewResponse } from "@/types/propertyPost";
+import ReviewList from "@/app/ReviewList";
 
 const KMap = dynamic(
   () => import("./Components/KakaoMap").then((mod) => mod.KakaoMap),
@@ -20,19 +19,26 @@ const KMap = dynamic(
 
 export default function MapPage() {
   const router = useRouter();
+  const [rooms, setRooms] = useState<RoomDetail[]>([]);
+  const [reviews, setReviews] = useState<ReviewResponse[]>([]);
+
   const handlGoToSearchPage = () => {
     router.push("../search");
   };
 
-  const [rooms, setRooms] = useState<RoomDetail[]>([]);
   useEffect(() => {
     (async () => {
       try {
         const data = await getRoomList();
         setRooms(data);
+
+        // 예시: 첫 번째 매물 리뷰 불러오기
+        if (data.length > 0) {
+          const reviewData = await getReviews(data[0].propertyId);
+          setReviews(reviewData);
+        }
       } catch (err) {
-        console.error(err);
-        // setRooms(MOCK_ROOM_DETAILS); // 🔹 더미데이터 fallback (주석 유지)
+        console.error("데이터 불러오기 실패:", err);
       }
     })();
   }, []);
@@ -52,16 +58,10 @@ export default function MapPage() {
           {rooms.map((room) => (
             <PropertyPreview key={room.propertyId} data={room} />
           ))}
-
-          {/* 
-          {MOCK_PROPERTY_POST.map((item) => {
-            const aiResult = MOCK_PROPERTY_AI.find((ai) => ai.propertyId === item.propertyId);
-            const roomDetail = MOCK_ROOM_DETAILS.find((room) => room.propertyId === item.propertyId);
-            if (!roomDetail) return null;
-            return <PropertyPreview key={item.propertyId} data={roomDetail} reviewAI={aiResult} />;
-          })}
-          */}
         </div>
+
+        {/* 리뷰 리스트 */}
+        <ReviewList items={reviews} />
       </div>
       <BottomNav active="map" />
     </div>

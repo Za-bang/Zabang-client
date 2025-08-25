@@ -1,38 +1,73 @@
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 import styles from "./page.module.css";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
+
 import Header from "@/Components/Header";
+import HeaderBack from "@/Components/HeaderBack";
 import BottomNav from "@/Components/BottomNav";
+
 import { FILTERS } from "@/types/constants";
-import { useRouter } from "next/navigation";
-import type { PostListItem } from "@/types/community";
+import type { PostListItem, PostDetail } from "@/types/community";
+
 import PostCardList from "./Components/PostCardList";
-// import { MOCK_POST_LIST } from "@/data/demoCommunityPosts";
-import { getPostList } from "@/lib/api";
+import CommunityPostDetail from "./Components/CommunityPostDetail";
+import CommentSection from "./Components/CommentSection";
+
+import { getPostList, getPostDetail } from "@/lib/api";
+// import { MOCK_POST_LIST, MOCK_POST_DETAIL } from "@/data/demoCommunityPosts";
 
 export default function CommunityPage() {
-  const [filter, setFilter] = useState("전체");
+  const searchParams = useSearchParams();
   const router = useRouter();
+
+  const id = searchParams.get("id"); // 상세 여부 구분
+  const [filter, setFilter] = useState("전체");
+
+  // 목록 데이터
+  const [posts, setPosts] = useState<PostListItem[]>([]);
+  // 상세 데이터
+  const [post, setPost] = useState<PostDetail | null>(null);
+
+  // 글쓰기 이동
   const handleGoToWrite = () => {
-    router.push("./write");
+    router.push("./community/write");
   };
 
-  const [posts, setPosts] = useState<PostListItem[]>([]);
-
+  // 목록 불러오기
   useEffect(() => {
-    (async () => {
-      try {
-        const data = await getPostList(0, 20);
-        setPosts(data.content); 
-      } catch (err) {
-        console.error(err);
-        // setPosts(MOCK_POST_LIST);
-      }
-    })();
-  }, []);
+    if (!id) {
+      (async () => {
+        try {
+          const data = await getPostList(0, 20);
+          setPosts(data.content);
+        } catch (err) {
+          console.error(err);
+          // setPosts(MOCK_POST_LIST);
+        }
+      })();
+    }
+  }, [id]);
 
+  // 상세 불러오기
+  useEffect(() => {
+    if (id) {
+      (async () => {
+        try {
+          const data = await getPostDetail(Number(id));
+          setPost(data);
+        } catch (err) {
+          console.error(err);
+          // const mock = MOCK_POST_DETAIL.find((p) => p.id === Number(id));
+          // if (mock) setPost(mock);
+        }
+      })();
+    }
+  }, [id]);
+
+  // 필터링
   const filteredPosts = useMemo(() => {
     if (filter === "전체") return posts;
     if (filter === "공동구매") return posts.filter((p) => p.category == "GROUP_BUY");
@@ -40,6 +75,26 @@ export default function CommunityPage() {
     return posts;
   }, [posts, filter]);
 
+  // -------------------------------
+  // 상세 페이지 모드
+  // -------------------------------
+  if (id) {
+    if (!post) return <div>게시글을 찾을 수 없습니다.</div>;
+    return (
+      <div className={styles.page}>
+        <HeaderBack />
+        <div className={styles.main}>
+          <CommunityPostDetail post={post} />
+          <CommentSection postId={post.id} />
+        </div>
+        <BottomNav active="board" />
+      </div>
+    );
+  }
+
+  // -------------------------------
+  // 목록 페이지 모드
+  // -------------------------------
   return (
     <div className={styles.page}>
       <Header />

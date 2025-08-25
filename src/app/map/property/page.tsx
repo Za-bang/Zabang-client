@@ -1,23 +1,21 @@
 import PropertyPostDetail from "./Components/PropertyPostDetail";
-import { MOCK_ROOM_DETAILS } from "@/data/demoProperties";
 import ReviewSection from "./Components/ReviewSection";
 import HeaderBack from "@/Components/HeaderBack";
 import BottomNav from "@/Components/BottomNav";
 import styles from "./page.module.css";
 
-export function generateStaticParams() {
-  return MOCK_ROOM_DETAILS.map((p) => ({ id: p.propertyId }));
-} 
+import type { RoomDetail } from "@/types/propertyPost";
+import { getRoomDetail } from "@/lib/api";
 
-interface PageProps {
-  params: Promise<{ id: string }>;
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-}
+export default async function PropertyPage() {
+  let post: RoomDetail | null = null;
 
-export default async function PropertyPostPage({ params }: PageProps) {
-  const { id } = await params;
+  try {
+    post = await getRoomDetail("1");
+  } catch (err) {
+    console.error("매물 상세 조회 실패:", err);
+  }
 
-  const post = MOCK_ROOM_DETAILS.find((p) => p.propertyId === id);
   if (!post) return <div>매물을 찾을 수 없습니다.</div>;
 
   return (
@@ -26,9 +24,7 @@ export default async function PropertyPostPage({ params }: PageProps) {
       <div className={styles.main}>
         <PropertyPostDetail post={post} />
         <div className={styles.review}>
-        <ReviewSection 
-          post={post.propertyId}
-        />
+          <ReviewSection post={post.propertyId} />
         </div>
       </div>
       <BottomNav active="map" />

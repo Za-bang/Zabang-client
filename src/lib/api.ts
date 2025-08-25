@@ -104,3 +104,16 @@ export async function getRoomDetail(
 
   return res.json();
 }
+
+import type { ReviewResponse } from "@/types/propertyPost";
+
+// 리뷰 목록 불러오기
+export async function getReviews(propertyId: string): Promise<ReviewResponse[]> {
+  const res = await fetch(`${BASE_URL}/rooms/${propertyId}/reviews`, {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  });
+
+  if (!res.ok) throw new Error("리뷰 불러오기 실패");
+  return res.json();
+}
