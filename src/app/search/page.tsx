@@ -6,12 +6,15 @@ import styles from "./page.module.css";
 import ArrowBackIosNewRoundedIcon from "@mui/icons-material/ArrowBackIosNewRounded";
 import BottomNav from "@/Components/BottomNav";
 import SearchBar from "./SearchBar";
+import PropertyPreview from "@/app/map/Components/PropertyPreview"; // ✅ 매물 카드
+import type { RoomDetail } from "@/types/propertyPost";
 import { getCombinedTagGroups } from "@/types/getTagGroups";
 
 export default function SearchFilterPage() {
   const router = useRouter();
   const [keyword, setKeyword] = useState("");
   const [selected, setSelected] = useState<string[]>([]);
+  const [rooms, setRooms] = useState<RoomDetail[]>([]); // ✅ 검색 결과 상태
 
   const TAG_GROUPS = useMemo(() => getCombinedTagGroups(), []);
 
@@ -28,6 +31,7 @@ export default function SearchFilterPage() {
 
   return (
     <div className={styles.page}>
+      {/* 상단 검색 바 */}
       <div className={styles.topbar}>
         <div className={styles.left}>
           <button
@@ -39,11 +43,13 @@ export default function SearchFilterPage() {
           </button>
         </div>
         <div className={styles.center}>
-          <SearchBar onSearch={setKeyword} />
+          {/* ✅ 검색 결과를 setRooms로 받음 */}
+          <SearchBar onResults={setRooms} />
         </div>
         <div className={styles.right}></div>
       </div>
 
+      {/* 태그 필터 */}
       <div className={styles.main}>
         {TAG_GROUPS.map((group) => (
           <section key={group.key} className={styles.group}>
@@ -63,12 +69,26 @@ export default function SearchFilterPage() {
             </div>
           </section>
         ))}
+
+        {/* ✅ 검색 결과 리스트 */}
+        <div className={styles.results}>
+          {rooms.length === 0 ? (
+            <p>검색 결과가 없습니다.</p>
+          ) : (
+            rooms.map((room) => (
+              <PropertyPreview key={room.propertyId} data={room} />
+            ))
+          )}
+        </div>
+
+        {/* 하단 검색 버튼 */}
         <div className={styles.bottomBar}>
           <button className={styles.searchBtn} onClick={goSearch}>
             검색하기
           </button>
         </div>
       </div>
+
       <BottomNav active="none" />
     </div>
   );
