@@ -2,15 +2,29 @@
 
 import { RoomDetail } from "@/types/propertyPost";
 import styles from "./propertyDetail.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getRoomDetail } from "@/lib/api"; 
 
 export default function PropertyPostDetail({ post }: { post: RoomDetail }) {
   const [showModal, setShowModal] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [room, setRoom] = useState<RoomDetail | null>(post ?? null);
 
-  const images = Array.isArray(post.imagePath)
-    ? post.imagePath
-    : [post.imagePath];
+  useEffect(() => {
+    if (!post?.propertyId) return;
+    (async () => {
+      try {
+        const data = await getRoomDetail(post.propertyId);
+        setRoom(data);
+      } catch (err) {
+        console.error("매물 상세 조회 실패:", err);
+      }
+    })();
+  }, [post?.propertyId]);
+
+  const images = Array.isArray(room?.imagePath)
+    ? room!.imagePath
+    : [room?.imagePath || ""];
 
   const openModal = (index: number) => {
     setCurrentIndex(index);
@@ -41,6 +55,8 @@ export default function PropertyPostDetail({ post }: { post: RoomDetail }) {
     parkingLot: "주차장",
   };
 
+  if (!room) return <div>매물 정보를 불러오는 중...</div>;
+
   return (
     <div>
       {/* 사진 영역 */}
@@ -50,7 +66,7 @@ export default function PropertyPostDetail({ post }: { post: RoomDetail }) {
             <div key={i} className={styles.imageWrapper}>
               <img
                 src={src}
-                alt={`${post.name} ${i + 1}`}
+                alt={`${room.name} ${i + 1}`}
                 className={styles.mainImage}
                 onClick={() => openModal(i)}
               />
@@ -87,7 +103,7 @@ export default function PropertyPostDetail({ post }: { post: RoomDetail }) {
             </button>
             <img
               src={images[currentIndex]}
-              alt={`${post.name} ${currentIndex + 1}`}
+              alt={`${room.name} ${currentIndex + 1}`}
               className={styles.previewImage}
             />
             <button className={styles.nextBtn} onClick={nextImage}>
@@ -99,19 +115,19 @@ export default function PropertyPostDetail({ post }: { post: RoomDetail }) {
 
       {/* 매물 정보 */}
       <section className={styles.infoSection}>
-        <div className={styles.title}>{post.name}</div>
+        <div className={styles.title}>{room.name}</div>
         <div className={styles.address}>
-          {post.address} | {post.area}
+          {room.address} | {room.area}
         </div>
         <ul className={styles.detailList}>
-          <li>보증금: {post.deposit}</li>
-          <li>월세: {post.rentPrice}</li>
-          <li>전용 면적: {post.wide}</li>
+          <li>보증금: {room.deposit}</li>
+          <li>월세: {room.rentPrice}</li>
+          <li>전용 면적: {room.wide}</li>
         </ul>
         <div className={styles.content}>
           <div className={styles.options}>옵션</div>
           <ul>
-            {Object.entries(post.options)
+            {Object.entries(room.options)
               .filter(([_, value]) => value === true)
               .map(([key]) => (
                 <li key={key}>{optionLabels[key] || key} </li>
