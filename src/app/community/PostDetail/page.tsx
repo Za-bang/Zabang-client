@@ -7,21 +7,23 @@ import BottomNav from "@/Components/BottomNav";
 import { getPostList, getPostDetail } from "@/lib/api";
 import type { PostDetail } from "@/types/community";
 
+// 정적 경로 생성
 export async function generateStaticParams() {
   try {
-    const data = await getPostList(0, 20); // 첫 20개만 예시
+    const data = await getPostList(0, 20);
     return data.content.map((p) => ({ id: String(p.id) }));
   } catch (err) {
     console.error("⚠️ 게시글 목록 가져오기 실패:", err);
-    return []; // 빌드 실패 방지
+    return [];
   }
 }
 
-interface PageProps {
+// 상세 페이지
+export default async function CommunityPostPage({
+  params,
+}: {
   params: { id: string };
-}
-
-export default async function CommunityPostPage({ params }: PageProps) {
+}) {
   let post: PostDetail | null = null;
 
   try {
