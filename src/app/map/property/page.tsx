@@ -4,18 +4,14 @@ import ReviewSection from "./Components/ReviewSection";
 import HeaderBack from "@/Components/HeaderBack";
 import BottomNav from "@/Components/BottomNav";
 import styles from "./page.module.css";
+import { useParams } from "next/navigation";
 
 export function generateStaticParams() {
   return MOCK_ROOM_DETAILS.map((p) => ({ id: p.propertyId }));
 } 
 
-interface PageProps {
-  params: Promise<{ id: string }>;
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-}
-
-export default async function PropertyPostPage({ params }: PageProps) {
-  const { id } = await params;
+export default async function PropertyPostPage() {
+  const {id}=useParams();
 
   const post = MOCK_ROOM_DETAILS.find((p) => p.propertyId === id);
   if (!post) return <div>매물을 찾을 수 없습니다.</div>;

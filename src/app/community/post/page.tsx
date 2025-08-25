@@ -9,13 +9,12 @@ import BottomNav from "@/Components/BottomNav";
 import CommentSection from "./Components/CommentSection";
 import { getPostDetail } from "@/lib/api";
 import type { PostDetail } from "@/types/community";
+import { useParams } from "next/navigation";
 
-interface PageProps {
-  params: { id: string };
-}
 
-export default function CommunityPostPage({ params }: PageProps) {
+export default function CommunityPostPage() {
   const [post, setPost] = useState<PostDetail | null>(null);
+  const params = useParams()
 
   useEffect(() => {
     (async () => {
